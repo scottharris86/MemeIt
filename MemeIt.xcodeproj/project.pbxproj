@@ -17,6 +17,7 @@
 		D226F4D623E718C3001E82A8 /* FavoritesCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D226F4D523E718C3001E82A8 /* FavoritesCollectionViewController.storyboard */; };
 		D226F4D823E719E5001E82A8 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226F4D723E719E5001E82A8 /* FavoritesCollectionViewController.swift */; };
 		D226F4DB23E7260B001E82A8 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226F4DA23E7260B001E82A8 /* MemeCollectionViewCell.swift */; };
+		D226F4DD23E73F55001E82A8 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226F4DC23E73F55001E82A8 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D226F4D523E718C3001E82A8 /* FavoritesCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesCollectionViewController.storyboard; sourceTree = "<group>"; };
 		D226F4D723E719E5001E82A8 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		D226F4DA23E7260B001E82A8 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D226F4DC23E73F55001E82A8 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		D226F4CE23E70E16001E82A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D226F4DC23E73F55001E82A8 /* Meme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				D226F4BB23E65C0C001E82A8 /* AppDelegate.swift in Sources */,
 				726CC10A23E7281F0085B75A /* LibraryViewController.swift in Sources */,
 				D226F4D823E719E5001E82A8 /* FavoritesCollectionViewController.swift in Sources */,
+				D226F4DD23E73F55001E82A8 /* Meme.swift in Sources */,
 				D226F4DB23E7260B001E82A8 /* MemeCollectionViewCell.swift in Sources */,
 				D226F4BD23E65C0C001E82A8 /* SceneDelegate.swift in Sources */,
 			);
