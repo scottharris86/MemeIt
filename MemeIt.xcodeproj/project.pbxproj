@@ -54,14 +54,54 @@
 		D226F4B923E65C0C001E82A8 /* MemeIt */ = {
 			isa = PBXGroup;
 			children = (
+				D226F4D123E70E36001E82A8 /* Model Controllers */,
+				D226F4D023E70E2A001E82A8 /* Views */,
+				D226F4CF23E70E22001E82A8 /* Controllers */,
+				D226F4CE23E70E16001E82A8 /* Models */,
+				D226F4D223E70E47001E82A8 /* Resources */,
+				D226F4C823E65C0E001E82A8 /* Info.plist */,
+			);
+			path = MemeIt;
+			sourceTree = "<group>";
+		};
+		D226F4CE23E70E16001E82A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D226F4CF23E70E22001E82A8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D226F4D023E70E2A001E82A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D226F4D123E70E36001E82A8 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		D226F4D223E70E47001E82A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				D226F4BA23E65C0C001E82A8 /* AppDelegate.swift */,
 				D226F4BC23E65C0C001E82A8 /* SceneDelegate.swift */,
 				D226F4C023E65C0C001E82A8 /* Main.storyboard */,
 				D226F4C323E65C0E001E82A8 /* Assets.xcassets */,
 				D226F4C523E65C0E001E82A8 /* LaunchScreen.storyboard */,
-				D226F4C823E65C0E001E82A8 /* Info.plist */,
 			);
-			path = MemeIt;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
