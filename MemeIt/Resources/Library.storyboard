@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MemeIt Search-->
+        <!--MemeIt Library-->
         <scene sceneID="sWa-1P-HDt">
             <objects>
                 <viewController id="1JQ-BX-Sd4" customClass="LibraryViewController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,7 +67,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Bt-gh-G0B"/>
                     </view>
-                    <navigationItem key="navigationItem" title="MemeIt Search" id="ofc-hh-Iy2"/>
+                    <navigationItem key="navigationItem" title="MemeIt Library" id="ofc-hh-Iy2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXG-UK-pv3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
