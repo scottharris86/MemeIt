@@ -14,6 +14,9 @@
 		D226F4C223E65C0C001E82A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D226F4C023E65C0C001E82A8 /* Main.storyboard */; };
 		D226F4C423E65C0E001E82A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D226F4C323E65C0E001E82A8 /* Assets.xcassets */; };
 		D226F4C723E65C0E001E82A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D226F4C523E65C0E001E82A8 /* LaunchScreen.storyboard */; };
+		D226F4D623E718C3001E82A8 /* FavoritesCollectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D226F4D523E718C3001E82A8 /* FavoritesCollectionViewController.storyboard */; };
+		D226F4D823E719E5001E82A8 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226F4D723E719E5001E82A8 /* FavoritesCollectionViewController.swift */; };
+		D226F4DB23E7260B001E82A8 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226F4DA23E7260B001E82A8 /* MemeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		D226F4C323E65C0E001E82A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D226F4C623E65C0E001E82A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D226F4C823E65C0E001E82A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D226F4D523E718C3001E82A8 /* FavoritesCollectionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesCollectionViewController.storyboard; sourceTree = "<group>"; };
+		D226F4D723E719E5001E82A8 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
+		D226F4DA23E7260B001E82A8 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				726CC10923E7281F0085B75A /* LibraryViewController.swift */,
+				D226F4D723E719E5001E82A8 /* FavoritesCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -86,6 +93,8 @@
 		D226F4D023E70E2A001E82A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D226F4D923E725F6001E82A8 /* Cells */,
+				D226F4D523E718C3001E82A8 /* FavoritesCollectionViewController.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,6 +117,14 @@
 				D226F4C523E65C0E001E82A8 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		D226F4D923E725F6001E82A8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D226F4DA23E7260B001E82A8 /* MemeCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D226F4C723E65C0E001E82A8 /* LaunchScreen.storyboard in Resources */,
+				D226F4D623E718C3001E82A8 /* FavoritesCollectionViewController.storyboard in Resources */,
 				D226F4C423E65C0E001E82A8 /* Assets.xcassets in Resources */,
 				726CC10623E715120085B75A /* Library.storyboard in Resources */,
 				D226F4C223E65C0C001E82A8 /* Main.storyboard in Resources */,
@@ -184,6 +202,8 @@
 			files = (
 				D226F4BB23E65C0C001E82A8 /* AppDelegate.swift in Sources */,
 				726CC10A23E7281F0085B75A /* LibraryViewController.swift in Sources */,
+				D226F4D823E719E5001E82A8 /* FavoritesCollectionViewController.swift in Sources */,
+				D226F4DB23E7260B001E82A8 /* MemeCollectionViewCell.swift in Sources */,
 				D226F4BD23E65C0C001E82A8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
