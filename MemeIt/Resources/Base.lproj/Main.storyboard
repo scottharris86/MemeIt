@@ -9,7 +9,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="7Si-QV-0b5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XTg-zB-Sne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="c6d-rh-KHe" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="88k-FT-l5s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -18,18 +17,22 @@
                     </tabBar>
                     <connections>
                         <segue destination="Wlt-cy-Wsm" kind="relationship" relationship="viewControllers" id="j2W-A5-X11"/>
+                        <segue destination="O8c-uI-czN" kind="relationship" relationship="viewControllers" id="Yek-KX-HcO"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XTg-zB-Sne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="413" y="159"/>
         </scene>
         <!--SearchViewController-->
         <scene sceneID="22O-3o-rKG">
             <objects>
-                <viewControllerPlaceholder referencedIdentifier="SearchViewController" id="O8c-uI-czN" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Search" referencedIdentifier="SearchViewController" id="O8c-uI-czN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="g6W-E2-HEe"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GnH-3I-z3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="-134"/>
+            <point key="canvasLocation" x="1207" y="-104"/>
         </scene>
         <!--FavoritesCollectionViewController-->
         <scene sceneID="i91-Va-dOG">
