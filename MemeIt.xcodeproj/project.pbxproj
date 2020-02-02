@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		726CC10623E715120085B75A /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726CC10523E715120085B75A /* Library.storyboard */; };
+		726CC10A23E7281F0085B75A /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CC10923E7281F0085B75A /* LibraryViewController.swift */; };
 		D226F4BB23E65C0C001E82A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226F4BA23E65C0C001E82A8 /* AppDelegate.swift */; };
 		D226F4BD23E65C0C001E82A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226F4BC23E65C0C001E82A8 /* SceneDelegate.swift */; };
 		D226F4C223E65C0C001E82A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D226F4C023E65C0C001E82A8 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		726CC10523E715120085B75A /* Library.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Library.storyboard; sourceTree = "<group>"; };
+		726CC10923E7281F0085B75A /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = SOURCE_ROOT; };
 		D226F4B723E65C0C001E82A8 /* MemeIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D226F4BA23E65C0C001E82A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D226F4BC23E65C0C001E82A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 		D226F4CF23E70E22001E82A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				726CC10923E7281F0085B75A /* LibraryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 				D226F4BA23E65C0C001E82A8 /* AppDelegate.swift */,
 				D226F4BC23E65C0C001E82A8 /* SceneDelegate.swift */,
 				D226F4C023E65C0C001E82A8 /* Main.storyboard */,
+				726CC10523E715120085B75A /* Library.storyboard */,
 				D226F4C323E65C0E001E82A8 /* Assets.xcassets */,
 				D226F4C523E65C0E001E82A8 /* LaunchScreen.storyboard */,
 			);
@@ -164,6 +170,7 @@
 			files = (
 				D226F4C723E65C0E001E82A8 /* LaunchScreen.storyboard in Resources */,
 				D226F4C423E65C0E001E82A8 /* Assets.xcassets in Resources */,
+				726CC10623E715120085B75A /* Library.storyboard in Resources */,
 				D226F4C223E65C0C001E82A8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D226F4BB23E65C0C001E82A8 /* AppDelegate.swift in Sources */,
+				726CC10A23E7281F0085B75A /* LibraryViewController.swift in Sources */,
 				D226F4BD23E65C0C001E82A8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
