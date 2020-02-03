@@ -11,12 +11,16 @@ import UIKit
 
 //need delegate to pass meme library, so the filter method can create a new array of memes based on the category
 
+protocol memeLibraryDelegate {
+    var memeLibrary: [Meme]{get}
+}
 class SearchCollectionViewController: UICollectionViewController {
     
     //  MARK - Properties
     
     let searchController = UISearchController(searchResultsController: nil)
     var filterMemes: [Meme] = []
+    var memeLibraryDelegate: memeLibraryDelegate?
     
     var isSearchEmoty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -44,9 +48,7 @@ class SearchCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
-        
-        cell.searchImageView.image = filterMemes[indexPath.row].image
-        
+        cell.searchImageView.image = UIImage(data: filterMemes[indexPath.row].imageData)
         return cell
     }
     
@@ -64,13 +66,13 @@ class SearchCollectionViewController: UICollectionViewController {
 }
 
 
-// MARK - Extensions
+ //  MARK - Extensions
 
 //extension SearchCollectionViewController: UISearchBarDelegate{
 //    func searchBar(_ searchBar: UISearchBar,
 //                   selectedScopeButtonIndexDidChange selectedScope: Int) {
-//        let category = MemeCategory(rawValue:
-//            searchBar.scopeButtonTitles![selectedScope])
+//        guard let category = MemeCategory(rawValue:
+//            searchBar.scopeButtonTitles![selectedScope]) else {return}
 //        filterContentForSearchText(searchBar.text!, category: category)
 //    }
 //}
@@ -79,15 +81,13 @@ class SearchCollectionViewController: UICollectionViewController {
 //    func updateSearchResults(for searchController: UISearchController) {
 //        let searchBar = searchController.searchBar
 //        guard let searchText = searchBar.text else {return}
-//        filterContentForSearchText(searchText, category: <#MemeCategory#>)
+//        filterContentForSearchText(searchText, category: MemeCategory(rawValue: searchText.description)!)
 //    }
-//
+
 //    func filterContentForSearchText(_ searchText: String, category: MemeCategory){
-//        var filteredMemes = memes.filter { (meme: Meme) -> Bool in return
+//        var filteredMemes = memes.filter { (meme: memeLibraryDelegate) -> Bool in return
 //            meme.category.lowercased().contains(searchText.lowercased())
 //        }
-//        // need update views function
-//
 //    }
 //}
 
