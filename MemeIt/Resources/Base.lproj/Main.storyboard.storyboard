@@ -26,9 +26,13 @@
         <!--SearchCollectionViewController-->
         <scene sceneID="22O-3o-rKG">
             <objects>
+<<<<<<< HEAD
                 <viewControllerPlaceholder storyboardName="Search" referencedIdentifier="SearchCollectionViewController" id="O8c-uI-czN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="g6W-E2-HEe"/>
                 </viewControllerPlaceholder>
+=======
+                <viewControllerPlaceholder referencedIdentifier="SearchViewController" id="O8c-uI-czN" sceneMemberID="viewController"/>
+>>>>>>> master
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GnH-3I-z3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2100" y="-134"/>

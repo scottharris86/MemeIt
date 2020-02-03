@@ -87,9 +87,9 @@ extension SearchCollectionViewController: UISearchResultsUpdating{
     }
 
     func filterContentForSearchText(_ searchText: String, category: MemeCategory){
-        var filteredMemes = memes.filter { (meme: memeLibraryDelegate) -> Bool in return
-            meme.category.lowercased().contains(searchText.lowercased())
-        }
+//        var filteredMemes = memes.filter { (meme: memeLibraryDelegate) -> Bool in return
+//            meme.category.lowercased().contains(searchText.lowercased())
+//        }
     }
 }
 
