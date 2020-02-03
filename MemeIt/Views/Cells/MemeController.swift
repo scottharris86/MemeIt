@@ -12,14 +12,6 @@ import UIKit
 struct staticValues{
      // Keys
     static var memeLibraryPersistenceFileName: String = "MemeLibrary.plist"
-    
-    
-    // Custom Cell Identifiers
-    
-    
-    // Segue Identifiers
-    
-    
 }
 
 
@@ -27,6 +19,7 @@ class MemeLibrary{
     
     // MARK - Properties
     
+    var memeLibrary = [Meme]()
     var memeLibraryURL: URL?{
     let fileManager = FileManager.default
     guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil}
@@ -38,8 +31,11 @@ class MemeLibrary{
     // MARK - CRUD
     
     // create
-    var memeLibrary = [Meme]()
-        
+    
+    func createMeme(meme: Meme){
+        let newMeme = meme
+        memeLibrary.append(newMeme)
+    }
     
 
     // Persistence
@@ -57,16 +53,16 @@ class MemeLibrary{
            }
        }
        
-//       func loadFromPersistnetStore (){
-//
-//           guard let memeLibraryURL = memeLibraryURL else { return }
-//
-//           do{
-//               let decoder = PropertyListDecoder()
-//            let memeLibraryData = try Data(contentsOf: memeLibraryURL)
-//               let memeLibraryArray = try decoder.decode([Meme].self, from: memeLibraryData)
-//           } catch{
-//               print("Error decoding readList: \(error)")
-//           }
-//       }
+       func loadFromPersistnetStore (){
+
+           guard let memeLibraryURL = memeLibraryURL else { return }
+
+           do{
+               let decoder = PropertyListDecoder()
+            let memeLibraryData = try Data(contentsOf: memeLibraryURL)
+               let memeLibraryArray = try decoder.decode([Meme].self, from: memeLibraryData)
+           } catch{
+               print("Error decoding readList: \(error)")
+           }
+       }
 }

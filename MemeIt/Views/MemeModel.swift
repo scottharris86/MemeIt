@@ -14,7 +14,7 @@ enum MemeCategory: String, CaseIterable{
     case uncategorized = "Not Categorized"
 }
 
-struct Meme: Encodable{
+struct Meme: Codable{
     
     var category: MemeCategory
     var imageData: Data

@@ -100,8 +100,9 @@
 		D226F4D023E70E2A001E82A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D226F4D923E725F6001E82A8 /* Cells */,
 				D226F4D523E718C3001E82A8 /* FavoritesCollectionViewController.storyboard */,
+				726CC10523E715120085B75A /* Search.storyboard */,
+				D226F4D923E725F6001E82A8 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,7 +121,6 @@
 				D226F4BA23E65C0C001E82A8 /* AppDelegate.swift */,
 				D226F4BC23E65C0C001E82A8 /* SceneDelegate.swift */,
 				D226F4C023E65C0C001E82A8 /* Main.storyboard */,
-				726CC10523E715120085B75A /* Search.storyboard */,
 				D226F4C323E65C0E001E82A8 /* Assets.xcassets */,
 				D226F4C523E65C0E001E82A8 /* LaunchScreen.storyboard */,
 			);
