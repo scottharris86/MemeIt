@@ -20,6 +20,8 @@ class SearchCollectionViewController: UICollectionViewController {
     
     //  MARK - Properties
     
+    var memes: [Meme]?
+    
     let searchController = UISearchController(searchResultsController: nil)
     var filterMemes: [Meme] = []
     var memeLibraryDelegate: memeLibraryDelegate?
@@ -68,7 +70,7 @@ class SearchCollectionViewController: UICollectionViewController {
 }
 
 
- //  MARK - Extensions
+//  MARK - Extensions
 
 extension SearchCollectionViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar,
@@ -85,11 +87,14 @@ extension SearchCollectionViewController: UISearchResultsUpdating{
         guard let searchText = searchBar.text else {return}
         filterContentForSearchText(searchText, category: MemeCategory(rawValue: searchText.description)!)
     }
-
+    
     func filterContentForSearchText(_ searchText: String, category: MemeCategory){
-//        var filteredMemes = memes.filter { (meme: memeLibraryDelegate) -> Bool in return
-//            meme.category.lowercased().contains(searchText.lowercased())
-//        }
+        if let memes = memes {
+            var filteredMemes = memes.filter {
+                $0.category.rawValue.lowercased().contains(searchText.lowercased())
+            }
+        }
+        
     }
 }
 
