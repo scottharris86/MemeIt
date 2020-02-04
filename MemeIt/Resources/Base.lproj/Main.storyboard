@@ -18,11 +18,22 @@
                     <connections>
                         <segue destination="Wlt-cy-Wsm" kind="relationship" relationship="viewControllers" id="j2W-A5-X11"/>
                         <segue destination="O8c-uI-czN" kind="relationship" relationship="viewControllers" id="Ux5-yJ-8sZ"/>
+                        <segue destination="tay-uw-iru" kind="relationship" relationship="viewControllers" id="53S-u8-5mH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTg-zB-Sne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="413" y="159"/>
+        </scene>
+        <!--CreateMemeDetailViewController-->
+        <scene sceneID="FtF-qr-ti8">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CreateDetailViewController" storyboardName="CreateMemeDetailViewController" id="tay-uw-iru" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="IMx-2j-Up2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3um-28-MTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1151" y="-252"/>
         </scene>
         <!--SearchCollectionViewController-->
         <scene sceneID="22O-3o-rKG">
@@ -32,7 +43,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GnH-3I-z3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1146" y="-107"/>
+            <point key="canvasLocation" x="1279" y="80"/>
         </scene>
         <!--FavoritesCollectionViewController-->
         <scene sceneID="i91-Va-dOG">
