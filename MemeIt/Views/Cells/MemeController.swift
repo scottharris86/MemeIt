@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct staticValues{
+struct staticValues {
      // Keys
     static var memeLibraryPersistenceFileName: String = "MemeLibrary.plist"
 
@@ -18,11 +18,11 @@ struct staticValues{
 }
 
 
-class MemeLibrary{
+class MemeController {
     
     // MARK - Properties
     
-    var memeLibrary = [Meme]()
+    var memeLibrary: [Meme] = []
     var memeLibraryURL: URL?{
     let fileManager = FileManager.default
     guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil}
@@ -80,6 +80,7 @@ class MemeLibrary{
                let decoder = PropertyListDecoder()
             let memeLibraryData = try Data(contentsOf: memeLibraryURL)
                let memeLibraryArray = try decoder.decode([Meme].self, from: memeLibraryData)
+                memeLibrary = memeLibraryArray
            } catch{
                print("Error decoding readList: \(error)")
            }
