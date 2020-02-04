@@ -24,7 +24,7 @@ class SearchCollectionViewController: UICollectionViewController {
     let searchController = UISearchController(searchResultsController: nil)
     let searchOptionArray = ["Save to clipboard", "Add to favorites", "Delete"]
     var filterMemes: [Meme] = []
-    let memeLibraryController = MemeLibrary()
+    let memeController = MemeController()
     
     var isSearchEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -204,11 +204,11 @@ extension SearchCollectionViewController: UITableViewDelegate, UITableViewDataSo
         
         switch indexPath.row {
         case 0:
-            memeLibraryController.addToClipboard(meme: meme)
+            memeController.addToClipboard(meme: meme)
         case 1:
-            memeLibraryController.addToFavorites(meme: meme)
+            memeController.addToFavorites(meme: meme)
         case 2:
-            memeLibraryController.delete(meme: meme)
+            memeController.delete(meme: meme)
         default:
             break
         }
