@@ -17,8 +17,7 @@ class FavoritesCollectionViewController: UICollectionViewController {
         for _ in 0...19 {
             let random = Int.random(in: 0...1)
             let image = imageNames[random]
-            images.append(UIImage(named: image)!)
-            
+            images.append(UIImage(named: image)!)            
         }
     }
     
@@ -31,8 +30,11 @@ class FavoritesCollectionViewController: UICollectionViewController {
         
         cell.memeImageView.image = images[indexPath.item]
         
+        
         return cell
     }
+    
+    
     
     
     
@@ -42,9 +44,9 @@ extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let viewWidth = collectionView.frame.width - 8
         let cellWidth = viewWidth / 3 - 2
-        print(cellWidth)
         let size = CGSize(width: cellWidth, height: cellWidth - 2)
         return size
         
     }
+    
 }
