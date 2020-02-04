@@ -12,6 +12,9 @@ import UIKit
 struct staticValues{
      // Keys
     static var memeLibraryPersistenceFileName: String = "MemeLibrary.plist"
+
+    // Cell names
+    static var alertSearchCellName: String = "AlertSearchCell"
 }
 
 
@@ -35,8 +38,24 @@ class MemeLibrary{
     func createMeme(meme: Meme){
         let newMeme = meme
         memeLibrary.append(newMeme)
+        saveToPersistentStore()
     }
     
+    // update
+    
+    func addToFavorites(meme: Meme){
+        meme.isFavorite = !meme.isFavorite
+        saveToPersistentStore()
+    }
+    
+    // delete
+    
+    func delete(meme: Meme){
+        guard let index = memeLibrary.firstIndex(of: meme) else {return}
+        memeLibrary.remove(at: index)
+        saveToPersistentStore()
+        
+    }
 
     // Persistence
        
@@ -65,4 +84,24 @@ class MemeLibrary{
                print("Error decoding readList: \(error)")
            }
        }
+    
+    // Methods
+    
+    func addToClipboard (meme: Meme){
+        let pasteBoard = UIPasteboard.general
+        pasteBoard.image = UIImage(data: meme.imageData)
+        
+        let aLocalStringValue = "Local only string key"
+        let aLocalStringKey = "Local only string value"
+        
+        pasteBoard.setItems([[aLocalStringKey: aLocalStringValue]], options: [UIPasteboard.OptionsKey.localOnly: true])
+        
+        let aExpiringStringKey = "Local only string key"
+        let aExpiringStringValue = "Local only string value"
+        
+        let expirationDateOfTomorrow = Date().addingTimeInterval(60*60*24)
+        
+        pasteBoard.setItems([[aExpiringStringKey: aExpiringStringValue]], options: [UIPasteboard.OptionsKey.expirationDate: expirationDateOfTomorrow])
+        
+    }
 }

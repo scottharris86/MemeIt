@@ -14,11 +14,17 @@ enum MemeCategory: String, CaseIterable{
     case uncategorized = "Not Categorized"
 }
 
-struct Meme: Codable{
+class Meme: Codable{
     
     var category: MemeCategory
     var imageData: Data
     var isFavorite: Bool
+    
+    init(category: MemeCategory, imageData: Data, isFavorite: Bool = false){
+        self.category = category
+        self.imageData = imageData
+        self.isFavorite = isFavorite
+    }
 }
 
 extension MemeCategory: Codable {
@@ -42,6 +48,17 @@ extension MemeCategory: Codable {
         var container = encoder.container(keyedBy: Key.self)
         
         try container.encode(rawValue, forKey: .rawValue)
+    }
+    
+    
+}
+
+// MARK - Extensions
+
+extension Meme: Equatable{
+    static func == (lhs: Meme, rhs: Meme) -> Bool {
+        if lhs.imageData == rhs.imageData{ return true} else {return false}
+        
     }
     
     
