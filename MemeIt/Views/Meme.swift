@@ -19,6 +19,9 @@ class Meme: Codable{
     var category: MemeCategory
     var imageData: Data
     var isFavorite: Bool
+    var image: UIImage? {
+        return UIImage(data: imageData)
+    }
     
     init(category: MemeCategory, imageData: Data, isFavorite: Bool = false){
         self.category = category
