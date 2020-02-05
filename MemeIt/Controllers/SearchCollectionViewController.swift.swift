@@ -11,7 +11,11 @@ import UIKit
 class SearchCollectionViewController: UICollectionViewController {
     
     //  MARK - Properties
+<<<<<<< HEAD
     
+=======
+    var memes: [Meme]?
+>>>>>>> master
     let blackView = UIView()
     let slider = UIView()
     let alertTableView = UITableView()
@@ -54,7 +58,7 @@ class SearchCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
-        let imageData = filterMemes[indexPath.row].imageData
+        guard let imageData = filterMemes[indexPath.row].imageData else {return UICollectionViewCell()}
         cell.searchImageView.image = UIImage(data: imageData)
         return cell
     }
@@ -114,6 +118,7 @@ class SearchCollectionViewController: UICollectionViewController {
         }
     }
     
+<<<<<<< HEAD
     func deleteAlert(meme: Meme){
         let deleteAlert = UIAlertController(title: "Confirm Delete", message: "Are you sure you want to delete the meme?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -122,6 +127,34 @@ class SearchCollectionViewController: UICollectionViewController {
             self.memeController.delete(meme: meme)
             
             self.collectionView.deleteItems(at: [self.lastSelectedMemeCell])
+=======
+}
+
+
+//  MARK - Extensions
+
+extension SearchCollectionViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar,
+                   selectedScopeButtonIndexDidChange selectedScope: Int) {
+        guard let category = MemeCategory(rawValue:
+            searchBar.scopeButtonTitles![selectedScope]) else {return}
+        filterContentForSearchText(searchBar.text!, category: category)
+    }
+}
+
+extension SearchCollectionViewController: UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        guard let searchText = searchBar.text else {return}
+        filterContentForSearchText(searchText, category: MemeCategory(rawValue: searchText.description)!)
+    }
+    
+    func filterContentForSearchText(_ searchText: String, category: MemeCategory){
+        if let memes = memes {
+            var filteredMemes = memes.filter {
+                $0.category.rawValue.lowercased().contains(searchText.lowercased())
+            }
+>>>>>>> master
         }
         deleteAlert.addAction(cancelAction)
         deleteAlert.addAction(deleteAction)
@@ -140,8 +173,6 @@ extension SearchCollectionViewController: UICollectionViewDelegateFlowLayout {
         let size = CGSize(width: cellWidth, height: cellWidth - 2)
         return size
     }
-    
-    
 }
 
 extension SearchCollectionViewController: UITableViewDelegate, UITableViewDataSource{

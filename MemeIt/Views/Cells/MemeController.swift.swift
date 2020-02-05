@@ -12,6 +12,10 @@ import UIKit
 struct staticValues {
     // Keys
     static var memeLibraryPersistenceFileName: String = "MemeLibrary.plist"
+<<<<<<< HEAD
+=======
+    
+>>>>>>> master
     // Cell names
     static var alertSearchCellName: String = "AlertSearchCell"
 }
@@ -19,6 +23,7 @@ struct staticValues {
 class MemeController {
     
     // MARK - Properties
+<<<<<<< HEAD
     lazy var memeLibrary: [Meme] = [
         Meme(category: .food, imageData: convertToImageData(for: "avocado")),
         Meme(category: .sports, imageData: convertToImageData(for: "endofdecade")),
@@ -27,6 +32,14 @@ class MemeController {
     var memeLibraryURL: URL?{
     let fileManager = FileManager.default
     guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil}
+        let listURL = documentsDir.appendingPathComponent(staticValues.memeLibraryPersistenceFileName)
+    return listURL
+=======
+    
+    var memeLibrary: [Meme] = []
+    var memeLibraryURL: URL? {
+        let fileManager = FileManager.default
+        guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil}
         let listURL = documentsDir.appendingPathComponent(staticValues.memeLibraryPersistenceFileName)
         
         return listURL
@@ -38,6 +51,7 @@ class MemeController {
     
     init() {
         loadFromPersistnetStore()
+>>>>>>> master
     }
     
     // MARK - CRUD
@@ -65,6 +79,7 @@ class MemeController {
     }
     
     // Persistence
+<<<<<<< HEAD
        func saveToPersistentStore(){
            
            guard let memeLibraryURL = memeLibraryURL else { return }
@@ -72,6 +87,16 @@ class MemeController {
            let encoder = PropertyListEncoder()
            do{
                let listData = try encoder.encode(memeLibrary)
+=======
+    
+    func saveToPersistentStore(){
+        
+        guard let memeLibraryURL = memeLibraryURL else { return }
+        
+        let encoder = PropertyListEncoder()
+        do{
+            let listData = try encoder.encode(memeLibrary)
+>>>>>>> master
             try listData.write(to: memeLibraryURL)
         } catch {
             print("Error encoding books array: \(error)")
@@ -95,14 +120,14 @@ class MemeController {
     // Methods
     func addToClipboard (meme: Meme){
         let pasteBoard = UIPasteboard.general
-        let imageData = meme.imageData
+        guard let imageData = meme.imageData else {return}
         pasteBoard.image = UIImage(data: imageData)
         
     }
 
-    func convertToImageData(for image: String) -> Data {
-        guard let image = UIImage(named: image),
-        let pngData = image.pngData() else {return Data()}
+    func convertToImageData(for image: String) -> Data?{
+         guard let image = UIImage(named: image) else {return nil}
+         let pngData = image.pngData()
         return pngData
      }
 }
