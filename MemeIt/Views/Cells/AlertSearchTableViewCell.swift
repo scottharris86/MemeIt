@@ -9,8 +9,6 @@
 import UIKit
 
 class AlertSearchTableViewCell: UITableViewCell {
-    
-    
     lazy var alertBackView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 50))
         return view
@@ -21,18 +19,9 @@ class AlertSearchTableViewCell: UITableViewCell {
         return label
     }()
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-addSubview(alertBackView)
+        addSubview(alertBackView)
         alertBackView.addSubview(alertLabel)
-        
-        // Configure the view for the selected state
     }
-
 }
