@@ -37,7 +37,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gE1-Xr-hA0">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gE1-Xr-hA0">
                                 <rect key="frame" x="20" y="475" width="374" height="37"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0B3-PC-DQE">
@@ -80,6 +80,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageLabel" destination="0B3-PC-DQE" id="VuH-vb-YKn"/>
+                        <outlet property="labelBackground" destination="gE1-Xr-hA0" id="b8m-FI-hDD"/>
                         <outlet property="memeImageView" destination="05N-Ew-SH6" id="qvQ-ZD-ujX"/>
                         <outlet property="memeTextField" destination="w9W-Q9-mnd" id="J3g-it-bIV"/>
                     </connections>

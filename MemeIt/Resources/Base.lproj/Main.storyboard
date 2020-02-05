@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Meme Tab Bar Controller-->
         <scene sceneID="7Si-QV-0b5">
             <objects>
-                <tabBarController id="c6d-rh-KHe" sceneMemberID="viewController">
+                <tabBarController id="c6d-rh-KHe" customClass="MemeTabBarController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="88k-FT-l5s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
