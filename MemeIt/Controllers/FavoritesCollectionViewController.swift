@@ -8,27 +8,38 @@
 
 import UIKit
 
-class FavoritesCollectionViewController: UICollectionViewController {
+class FavoritesCollectionViewController: UICollectionViewController, ViewControllerMemeController {
+    
+    
+    var memeController: MemeController?
     
     let imageNames = ["michael", "michael-scott"]
     var images: [UIImage] = []
     
     override func viewDidLoad() {
-        for _ in 0...19 {
-            let random = Int.random(in: 0...1)
-            let image = imageNames[random]
-            images.append(UIImage(named: image)!)            
-        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        if let memeController = memeController {
+            return memeController.favoriteMemes.count
+        }
+        
+        return 0
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCell", for: indexPath) as? MemeCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.memeImageView.image = images[indexPath.item]
+        if let image = memeController?.favoriteMemes[indexPath.item].image {
+            cell.memeImageView.image = image
+        }
         
         
         return cell

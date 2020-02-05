@@ -16,7 +16,6 @@ import UIKit
 class SearchCollectionViewController: UICollectionViewController {
     
     //  MARK - Properties
-    
     var memes: [Meme]?
     let blackView = UIView()
     let slider = UIView()
@@ -147,7 +146,7 @@ class SearchCollectionViewController: UICollectionViewController {
 
 //  MARK - Extensions
 
-extension SearchCollectionViewController: UISearchBarDelegate{
+extension SearchCollectionViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar,
                    selectedScopeButtonIndexDidChange selectedScope: Int) {
         guard let category = MemeCategory(rawValue:
