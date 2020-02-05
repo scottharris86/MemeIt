@@ -15,10 +15,21 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
     let blackView = UIView()
     let slider = UIView()
     let alertTableView = UITableView()
-    let searchOptionArray = ["Save to clipboard", "Add to favorites", "Delete"]
+    lazy var searchOptionArray = ["Save to clipboard", isAFavorite(indexPath: lastSelectedMemeCell), "Delete"]
     lazy var filterMemes = memeController?.memeLibrary
     var lastSelectedMemeCell: IndexPath = IndexPath(item: 0, section: 0)
      var memeController: MemeController?
+    
+    func isAFavorite (indexPath: IndexPath) -> String{
+        guard let memeController = memeController else {return String()}
+        let meme = memeController.memeLibrary[lastSelectedMemeCell.row]
+        if meme.isFavorite{
+            return "Remove from favorites"
+        } else{
+            return "Add to favorites"
+        }
+        
+    }
     
     // MARK - Outlets and Actions
     
@@ -136,6 +147,8 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
 }
 
 //  MARK - Extensions
+
+// MARK: - UIollectionviewDelegateFlowLayout
 
 extension SearchCollectionViewController: UICollectionViewDelegateFlowLayout {
     
