@@ -12,29 +12,27 @@ import UIKit
 struct staticValues {
      // Keys
     static var memeLibraryPersistenceFileName: String = "MemeLibrary.plist"
-
     // Cell names
     static var alertSearchCellName: String = "AlertSearchCell"
 }
 
-
 class MemeController {
     
     // MARK - Properties
-    
-    var memeLibrary: [Meme] = []
+    lazy var memeLibrary: [Meme] = [
+        Meme(category: .food, imageData: convertToImageData(for: "avocado")),
+        Meme(category: .sports, imageData: convertToImageData(for: "endofdecade")),
+        Meme(category: .personal, imageData: convertToImageData(for: "summerSchool"))
+    ]
     var memeLibraryURL: URL?{
     let fileManager = FileManager.default
     guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil}
         let listURL = documentsDir.appendingPathComponent(staticValues.memeLibraryPersistenceFileName)
-        
     return listURL
     }
     
     // MARK - CRUD
-    
     // create
-    
     func createMeme(meme: Meme){
         let newMeme = meme
         memeLibrary.append(newMeme)
@@ -42,23 +40,22 @@ class MemeController {
     }
     
     // update
-    
     func addToFavorites(meme: Meme){
         meme.isFavorite = !meme.isFavorite
         saveToPersistentStore()
     }
     
     // delete
-    
     func delete(meme: Meme){
         guard let index = memeLibrary.firstIndex(of: meme) else {return}
+        print(index)
+        print(memeLibrary.count)
         memeLibrary.remove(at: index)
+        print(memeLibrary.count)
         saveToPersistentStore()
-        
     }
 
     // Persistence
-       
        func saveToPersistentStore(){
            
            guard let memeLibraryURL = memeLibraryURL else { return }
@@ -87,22 +84,16 @@ class MemeController {
        }
     
     // Methods
-    
     func addToClipboard (meme: Meme){
         let pasteBoard = UIPasteboard.general
-        pasteBoard.image = UIImage(data: meme.imageData)
-        
-        let aLocalStringValue = "Local only string key"
-        let aLocalStringKey = "Local only string value"
-        
-        pasteBoard.setItems([[aLocalStringKey: aLocalStringValue]], options: [UIPasteboard.OptionsKey.localOnly: true])
-        
-        let aExpiringStringKey = "Local only string key"
-        let aExpiringStringValue = "Local only string value"
-        
-        let expirationDateOfTomorrow = Date().addingTimeInterval(60*60*24)
-        
-        pasteBoard.setItems([[aExpiringStringKey: aExpiringStringValue]], options: [UIPasteboard.OptionsKey.expirationDate: expirationDateOfTomorrow])
+        guard let imageData = meme.imageData else {return}
+        pasteBoard.image = UIImage(data: imageData)
         
     }
+
+    func convertToImageData(for image: String) -> Data?{
+         guard let image = UIImage(named: image) else {return nil}
+         let pngData = image.pngData()
+        return pngData
+     }
 }
