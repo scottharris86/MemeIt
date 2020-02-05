@@ -10,17 +10,17 @@ import UIKit
 
 class SearchCollectionViewController: UICollectionViewController, ViewControllerMemeController {
     
-    //  MARK - Properties
+    //  MARK: - Properties
     
     let blackView = UIView()
     let slider = UIView()
     let alertTableView = UITableView()
-    let searchOptionArray = ["Save to clipboard", "Add to favorites", "Delete"]
+    lazy var searchOptionArray = ["Save to clipboard", isAFavorite(indexPath: lastSelectedMemeCell), "Delete"]
     lazy var filterMemes = memeController?.memeLibrary
     var lastSelectedMemeCell: IndexPath = IndexPath(item: 0, section: 0)
      var memeController: MemeController?
     
-    // MARK - Outlets and Actions
+    // MARK: - Outlets and Actions
     
     @IBOutlet weak var SegmentedControl: UISegmentedControl!
     
@@ -49,7 +49,7 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
         collectionView.reloadData()
     }
     
-    // MARK - UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let filterMemes = filterMemes{
@@ -76,7 +76,7 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
         }
     }
     
-    // MARK - Methods
+    // MARK: - Methods
     
     func alertShowSettings(meme: Meme){
         if let window = (UIApplication.shared.windows.first { $0.isKeyWindow }) {
@@ -133,9 +133,21 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
         deleteAlert.addAction(deleteAction)
         present(deleteAlert, animated: true, completion: nil)
     }
+    
+    func isAFavorite (indexPath: IndexPath) -> String{
+        guard let memeController = memeController else {return String()}
+        let meme = memeController.memeLibrary[lastSelectedMemeCell.row]
+        if meme.isFavorite{
+            return "Remove from favorites"
+        } else{
+            return "Add to favorites"
+        }
+        
+    }
 }
 
-//  MARK - Extensions
+
+// MARK: - UICollectionviewDelegateFlowLayout
 
 extension SearchCollectionViewController: UICollectionViewDelegateFlowLayout {
     
@@ -149,6 +161,8 @@ extension SearchCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     
 }
+
+// MARK: - UITabelViewDelegate / UITableViewDataSource
 
 extension SearchCollectionViewController: UITableViewDelegate, UITableViewDataSource{
     
