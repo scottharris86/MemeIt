@@ -50,7 +50,9 @@ class MemeController {
     
     // update
     func addToFavorites(meme: Meme){
-        meme.isFavorite = !meme.isFavorite
+        guard let index = memeLibrary.firstIndex(of: meme) else {return}
+        let originalMeme = memeLibrary[index]
+        originalMeme.isFavorite = !originalMeme.isFavorite
         saveToPersistentStore()
     }
     

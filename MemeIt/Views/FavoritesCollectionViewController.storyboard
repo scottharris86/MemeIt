@@ -52,7 +52,22 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="llv-9r-YSz"/>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="Xzo-Z0-xg7"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="Xzo-Z0-xg7">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="MG7-bj-QoK">
+                            <rect key="frame" x="12" y="5.5" width="390" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="All"/>
+                                <segment title="Food"/>
+                                <segment title="Movie"/>
+                                <segment title="Sport"/>
+                                <segment title="Work"/>
+                                <segment title="Personal"/>
+                                <segment title="Uncategorized"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AcQ-o6-S6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
