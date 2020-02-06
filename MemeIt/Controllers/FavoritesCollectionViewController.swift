@@ -39,18 +39,18 @@ class FavoritesCollectionViewController: UICollectionViewController, ViewControl
                 break
             case 1:
                 searchFilteredMemes = searchFilteredMemes.filter({
-                    $0.category == .food
+                    $0.category == .Food
                 })
             case 2:
-                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .movie })
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Movie })
             case 3:
-                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .personal })
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Personal })
             case 4:
-                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .sports })
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Sports })
             case 5:
-                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .work })
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Work })
             case 6:
-                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .uncategorized })
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Uncategorized })
             default:
                 break
             }
@@ -67,11 +67,16 @@ class FavoritesCollectionViewController: UICollectionViewController, ViewControl
         collectionView.reloadData()
     }
     
+    @IBAction func unwindToFavorites(_ sender: UIStoryboardSegue){
+        
+    }
+    
     // MARK: - Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
+        
     }
     
     // MARK: - Collection View Data Source

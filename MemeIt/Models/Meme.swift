@@ -10,12 +10,16 @@ import Foundation
 import UIKit
 
 enum MemeCategory: String, CaseIterable{
-    case uncategorized = "Not Categorized"
-    case food = "Food Reference"
-    case movie = "Movie Refernence"
-    case sports = "Sport Reference"
-    case work = "Work Reference"
-    case personal = "Personal Reference"
+    case Uncategorized = "Uncategorized"
+    case Food = "Food"
+    case Movie = "Movie"
+    case Sports = "Sports"
+    case Work = "Work"
+    case Personal = "Personal"
+    
+//    static var memeCategoryCount: Int{
+//        return MemeCategory.Personal.hashValue + 1
+//    }
 }
 
 class Meme: Codable {
@@ -34,6 +38,8 @@ class Meme: Codable {
     }
 }
 
+// MARK - Extensions
+
 extension MemeCategory: Codable {
     enum Key: CodingKey {
         case rawValue
@@ -44,15 +50,13 @@ extension MemeCategory: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Key.self)
         let rawValue = try container.decode(String.self, forKey: .rawValue)
-        self = MemeCategory(rawValue: rawValue) ?? .uncategorized
+        self = MemeCategory(rawValue: rawValue) ?? .Uncategorized
     }
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Key.self)
         try container.encode(rawValue, forKey: .rawValue)
     }
 }
-
-// MARK - Extensions
 
 extension Meme: Equatable{
     static func == (lhs: Meme, rhs: Meme) -> Bool {

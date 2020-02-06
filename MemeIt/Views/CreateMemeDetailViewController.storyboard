@@ -30,6 +30,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createTapped:" destination="hrW-GO-ubX" eventType="touchUpInside" id="P6W-Wk-M7b"/>
+                                    <segue destination="SnV-Ur-WcD" kind="presentation" identifier="ChooseCategorySegue" id="rNA-81-yOH"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w9W-Q9-mnd">
@@ -88,6 +89,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vrv-b8-oqP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1089.8550724637682" y="156.69642857142856"/>
+        </scene>
+        <!--CategorySelection-->
+        <scene sceneID="92m-wZ-vwK">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CategorySelectionViewController" storyboardName="CategorySelection" id="SnV-Ur-WcD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PAA-6g-aDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J4R-Y7-QOH">

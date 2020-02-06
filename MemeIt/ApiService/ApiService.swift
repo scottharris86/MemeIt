@@ -47,7 +47,7 @@ class ApiService {
                                                     
                                                     do {
                                                         let data = try Data(contentsOf: url)
-                                                        let meme = Meme(category: .uncategorized, imageData: data)
+                                                        let meme = Meme(category: .Uncategorized, imageData: data)
                                                         memes.append(meme)
                                                         
 

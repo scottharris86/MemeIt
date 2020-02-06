@@ -20,9 +20,9 @@ class MemeController {
     
     // MARK - Properties
     lazy var memeLibrary: [Meme] = [
-        Meme(category: .food, imageData: convertToImageData(for: "avocado")),
-        Meme(category: .sports, imageData: convertToImageData(for: "endofdecade")),
-        Meme(category: .personal, imageData: convertToImageData(for: "summerSchool"))
+        Meme(category: .Food, imageData: convertToImageData(for: "avocado")),
+        Meme(category: .Sports, imageData: convertToImageData(for: "endofdecade")),
+        Meme(category: .Personal, imageData: convertToImageData(for: "summerSchool"))
     ]
     var memeLibraryURL: URL?{
     let fileManager = FileManager.default
@@ -50,10 +50,18 @@ class MemeController {
     
     // update
     func addToFavorites(meme: Meme){
-        guard let index = memeLibrary.firstIndex(of: meme) else {return}
+        guard let index = memeLibrary.firstIndex(of: meme) else { return }
         let originalMeme = memeLibrary[index]
         originalMeme.isFavorite = !originalMeme.isFavorite
         saveToPersistentStore()
+    }
+    
+    func changeCategory(meme: Meme, category: MemeCategory){
+        guard let index = memeLibrary.firstIndex(of: meme) else { return }
+        let originalMeme = memeLibrary[index]
+        originalMeme.category = category
+        saveToPersistentStore()
+        
     }
     
     // delete

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7266558923E9BA230047EB9C /* AlertSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7266558823E9BA230047EB9C /* AlertSearchTableViewCell.swift */; };
+		726B3E9223ECA13E0055CD46 /* CategorySelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726B3E9123ECA13E0055CD46 /* CategorySelection.storyboard */; };
+		726B3E9423ECB24F0055CD46 /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726B3E9323ECB24F0055CD46 /* CategorySelectionViewController.swift */; };
 		726CC10A23E7281F0085B75A /* LibraryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CC10923E7281F0085B75A /* LibraryCollectionViewController.swift */; };
 		726CC11023E754DA0085B75A /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CC10F23E754DA0085B75A /* LibraryCollectionViewCell.swift */; };
 		726DAC4C23E897DE00C50569 /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726DAC4B23E897DE00C50569 /* Library.storyboard */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		7266558823E9BA230047EB9C /* AlertSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSearchTableViewCell.swift; sourceTree = "<group>"; };
+		726B3E9123ECA13E0055CD46 /* CategorySelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategorySelection.storyboard; sourceTree = "<group>"; };
+		726B3E9323ECB24F0055CD46 /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
 		726CC10923E7281F0085B75A /* LibraryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryCollectionViewController.swift; path = MemeIt/Controllers/LibraryCollectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		726CC10F23E754DA0085B75A /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 		726DAC4B23E897DE00C50569 /* Library.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Library.storyboard; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 		D226F4CF23E70E22001E82A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				726B3E9323ECB24F0055CD46 /* CategorySelectionViewController.swift */,
 				726CC10923E7281F0085B75A /* LibraryCollectionViewController.swift */,
 				D226F4D723E719E5001E82A8 /* FavoritesCollectionViewController.swift */,
 				D2524B9B23E8CA6800EAC9A9 /* CreateMemeDetailViewController.swift */,
@@ -137,6 +142,7 @@
 				726DAC4B23E897DE00C50569 /* Library.storyboard */,
 				D2524B9923E8C7CB00EAC9A9 /* CreateMemeDetailViewController.storyboard */,
 				D24D3FD223EBB96400962174 /* SearchMemesCollectionViewController.storyboard */,
+				726B3E9123ECA13E0055CD46 /* CategorySelection.storyboard */,
 				D226F4D923E725F6001E82A8 /* Cells */,
 			);
 			path = Views;
@@ -253,6 +259,7 @@
 				D226F4C723E65C0E001E82A8 /* LaunchScreen.storyboard in Resources */,
 				D226F4C423E65C0E001E82A8 /* Assets.xcassets in Resources */,
 				726DAC4E23E897F600C50569 /* FavoritesCollectionViewController.storyboard in Resources */,
+				726B3E9223ECA13E0055CD46 /* CategorySelection.storyboard in Resources */,
 				D24D3FD323EBB96400962174 /* SearchMemesCollectionViewController.storyboard in Resources */,
 				726DAC4C23E897DE00C50569 /* Library.storyboard in Resources */,
 				D226F4C223E65C0C001E82A8 /* Main.storyboard in Resources */,
@@ -266,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				726B3E9423ECB24F0055CD46 /* CategorySelectionViewController.swift in Sources */,
 				D226F4BB23E65C0C001E82A8 /* AppDelegate.swift in Sources */,
 				D24D3FC723EA269200962174 /* MemeTabBarController.swift in Sources */,
 				7266558923E9BA230047EB9C /* AlertSearchTableViewCell.swift in Sources */,
