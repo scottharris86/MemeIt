@@ -120,7 +120,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePE-8T-gEi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="wd3-hI-Q2V" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1142.0289855072465" y="127.90178571428571"/>
+            <point key="canvasLocation" x="1169" y="107"/>
         </scene>
     </scenes>
 </document>
