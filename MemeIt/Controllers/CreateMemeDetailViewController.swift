@@ -15,6 +15,8 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
     // MARK: - Properties
     
     var memeController: MemeController?
+    var meme: Meme?
+//    var newMeme: Meme?
     
     // MARK: - Outlets and Actions
     
@@ -24,6 +26,7 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
     @IBOutlet weak var labelBackground: UIView!
     
     @IBAction func createTapped(_ sender: Any) {
+        
         if let image = memeImageView.image {
             let size = memeImageView.frame.size
             let renderer = UIGraphicsImageRenderer(size: CGSize(width: size.width, height: size.height))
@@ -51,19 +54,12 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
             memeImageView.image = img
             
             if let pngData = img.pngData() {
-                let meme = Meme(category: .uncategorized, imageData: pngData, isFavorite: true)
+                let meme = Meme(category: .Uncategorized, imageData: pngData, isFavorite: true)
                 memeController?.createMeme(meme: meme)
-                
+                self.meme = meme
             }
-            
-            tabBarController?.selectedIndex = 0
-            
-            
-            
+//            tabBarController?.selectedIndex = 0
         }
-        
-        
-        
     }
     
     // MARK: - Lifecycle
@@ -84,8 +80,18 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         present(imagePicker, animated: true)
-        
-        
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ChooseCategorySegue"{
+            guard let categorySelectionVC = segue.destination as? CategorySelectionViewController,
+                let passedMeme = meme else { return }
+            
+                categorySelectionVC.meme = passedMeme
+          
+        }
     }
     
 }
@@ -104,8 +110,6 @@ extension CreateMemeDetailViewController: UIImagePickerControllerDelegate, UINav
 
 extension CreateMemeDetailViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //        print("called should change characters \(textField.text)")
-        //        print("Replacement string is: \(string)")
         if let text = textField.text {
             imageLabel.text =  text + string
         } else {

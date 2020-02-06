@@ -10,12 +10,16 @@ import Foundation
 import UIKit
 
 enum MemeCategory: String, CaseIterable{
-    case uncategorized = "Not Categorized"
-    case food = "Food Reference"
-    case movie = "Movie Refernence"
-    case sports = "Sport Reference"
-    case work = "Work Reference"
-    case personal = "Personal Reference"
+    case Uncategorized = "Uncategorized"
+    case Food = "Food"
+    case Movie = "Movie"
+    case Sports = "Sports"
+    case Work = "Work"
+    case Personal = "Personal"
+    
+//    static var memeCategoryCount: Int{
+//        return MemeCategory.Personal.hashValue + 1
+//    }
 }
 
 class Meme: Codable {
@@ -46,7 +50,7 @@ extension MemeCategory: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Key.self)
         let rawValue = try container.decode(String.self, forKey: .rawValue)
-        self = MemeCategory(rawValue: rawValue) ?? .uncategorized
+        self = MemeCategory(rawValue: rawValue) ?? .Uncategorized
     }
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Key.self)
@@ -58,68 +62,4 @@ extension Meme: Equatable{
     static func == (lhs: Meme, rhs: Meme) -> Bool {
         if lhs.imageData == rhs.imageData{ return true} else {return false}
     }
-}
-
-extension Meme: UIPickerViewDataSource{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        <#code#>
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
-    }
-    
-    func isEqual(_ object: Any?) -> Bool {
-        <#code#>
-    }
-    
-    var hash: Int {
-        <#code#>
-    }
-    
-    var superclass: AnyClass? {
-        <#code#>
-    }
-    
-    func `self`() -> Self {
-        <#code#>
-    }
-    
-    func perform(_ aSelector: Selector!) -> Unmanaged<AnyObject>! {
-        <#code#>
-    }
-    
-    func perform(_ aSelector: Selector!, with object: Any!) -> Unmanaged<AnyObject>! {
-        <#code#>
-    }
-    
-    func perform(_ aSelector: Selector!, with object1: Any!, with object2: Any!) -> Unmanaged<AnyObject>! {
-        <#code#>
-    }
-    
-    func isProxy() -> Bool {
-        <#code#>
-    }
-    
-    func isKind(of aClass: AnyClass) -> Bool {
-        <#code#>
-    }
-    
-    func isMember(of aClass: AnyClass) -> Bool {
-        <#code#>
-    }
-    
-    func conforms(to aProtocol: Protocol) -> Bool {
-        <#code#>
-    }
-    
-    func responds(to aSelector: Selector!) -> Bool {
-        <#code#>
-    }
-    
-    var description: String {
-        <#code#>
-    }
-    
-    
 }

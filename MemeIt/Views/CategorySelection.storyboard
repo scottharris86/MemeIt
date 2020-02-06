@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Ah-jY-feo">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Select a Meme Catergory-->
+        <scene sceneID="dis-TP-7lt">
+            <objects>
+                <viewController id="2Ah-jY-feo" customClass="CategorySelectionViewController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J3b-sW-4yo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="J4F-cY-D4u">
+                                <rect key="frame" x="60" y="145.5" width="255" height="376"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdS-fb-nfw">
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="46"/>
+                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <state key="normal" title="Food">
+                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="foodSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="hEx-Fk-upM"/>
+                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="AZ3-NN-w3s"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2k9-kc-GaO">
+                                        <rect key="frame" x="0.0" y="66" width="255" height="46"/>
+                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <state key="normal" title="Movies">
+                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="moviesSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="FQ7-cA-F96"/>
+                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="nRy-me-dgw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wop-Tk-SKC">
+                                        <rect key="frame" x="0.0" y="132" width="255" height="46"/>
+                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <state key="normal" title="Sports">
+                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sportsSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="urR-18-rUt"/>
+                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="KML-oq-e8L"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ht-ln-5Pl">
+                                        <rect key="frame" x="0.0" y="198" width="255" height="46"/>
+                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <state key="normal" title="Work">
+                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="workSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="XEC-ba-4zC"/>
+                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="cgh-Jw-BEd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNa-8t-3b3">
+                                        <rect key="frame" x="0.0" y="264" width="255" height="46"/>
+                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <state key="normal" title="Personal">
+                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="personalSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="laz-tS-HPR"/>
+                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="Qrq-gy-rkW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="On9-i9-E3A">
+                                        <rect key="frame" x="0.0" y="330" width="255" height="46"/>
+                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <state key="normal" title="None">
+                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="noneSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="Sgo-Lv-zTT"/>
+                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="spu-Bd-P54"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="rdS-fb-nfw" firstAttribute="leading" secondItem="J4F-cY-D4u" secondAttribute="leading" id="5cE-C3-N5o"/>
+                                    <constraint firstAttribute="trailing" secondItem="2k9-kc-GaO" secondAttribute="trailing" id="9ND-iw-kiN"/>
+                                    <constraint firstAttribute="trailing" secondItem="wop-Tk-SKC" secondAttribute="trailing" id="IYv-2k-anK"/>
+                                    <constraint firstAttribute="trailing" secondItem="2ht-ln-5Pl" secondAttribute="trailing" id="JyS-bP-GZ9"/>
+                                    <constraint firstAttribute="trailing" secondItem="On9-i9-E3A" secondAttribute="trailing" id="Kzd-nK-ZGd"/>
+                                    <constraint firstItem="2ht-ln-5Pl" firstAttribute="leading" secondItem="J4F-cY-D4u" secondAttribute="leading" id="Nla-G6-rrh"/>
+                                    <constraint firstItem="yNa-8t-3b3" firstAttribute="leading" secondItem="J4F-cY-D4u" secondAttribute="leading" id="eL1-gd-BNY"/>
+                                    <constraint firstAttribute="trailing" secondItem="yNa-8t-3b3" secondAttribute="trailing" id="grr-Vz-hsu"/>
+                                    <constraint firstAttribute="trailing" secondItem="rdS-fb-nfw" secondAttribute="trailing" id="j5y-9K-9sd"/>
+                                    <constraint firstItem="wop-Tk-SKC" firstAttribute="leading" secondItem="J4F-cY-D4u" secondAttribute="leading" id="lK8-cQ-IkD"/>
+                                    <constraint firstItem="On9-i9-E3A" firstAttribute="leading" secondItem="J4F-cY-D4u" secondAttribute="leading" id="pTk-51-3Ut"/>
+                                    <constraint firstItem="2k9-kc-GaO" firstAttribute="leading" secondItem="J4F-cY-D4u" secondAttribute="leading" id="umi-YX-M5A"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="u6E-sx-Bya" firstAttribute="trailing" secondItem="J4F-cY-D4u" secondAttribute="trailing" constant="60" id="Bh7-O9-2uC"/>
+                            <constraint firstItem="J4F-cY-D4u" firstAttribute="centerY" secondItem="J3b-sW-4yo" secondAttribute="centerY" id="Mhu-XQ-tOp"/>
+                            <constraint firstItem="J4F-cY-D4u" firstAttribute="leading" secondItem="u6E-sx-Bya" secondAttribute="leading" constant="60" id="Tux-vQ-jV6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u6E-sx-Bya"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select a Meme Catergory" largeTitleDisplayMode="always" id="NVK-Ea-s5y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ePE-8T-gEi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="wd3-hI-Q2V" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1142.0289855072465" y="127.90178571428571"/>
+        </scene>
+    </scenes>
+</document>
