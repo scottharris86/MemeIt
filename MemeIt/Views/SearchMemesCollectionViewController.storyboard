@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CS8-Rl-ghO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Memes Collection View Controller-->
+        <scene sceneID="WpH-1u-yUF">
+            <objects>
+                <collectionViewController id="OMp-3Q-8vc" customClass="SearchMemesCollectionViewController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Zw3-gl-JRR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="hA8-5X-bJL">
+                            <size key="itemSize" width="135" height="133"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCell" id="kje-N0-dHD" customClass="SearchCollectionViewCell" customModule="MemeIt" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="135" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0ru-BO-Qhe">
+                                    <rect key="frame" x="0.0" y="0.0" width="135" height="133"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8yM-w8-XGn">
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="133"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="8yM-w8-XGn" secondAttribute="bottom" id="ESd-qG-WZS"/>
+                                        <constraint firstAttribute="trailing" secondItem="8yM-w8-XGn" secondAttribute="trailing" id="HkC-XB-jwY"/>
+                                        <constraint firstItem="8yM-w8-XGn" firstAttribute="top" secondItem="0ru-BO-Qhe" secondAttribute="top" id="Vqn-Zx-dyj"/>
+                                        <constraint firstItem="8yM-w8-XGn" firstAttribute="leading" secondItem="0ru-BO-Qhe" secondAttribute="leading" id="eEI-Pd-xem"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="135" height="133"/>
+                                <connections>
+                                    <outlet property="imageView" destination="8yM-w8-XGn" id="vMQ-9G-G6T"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="OMp-3Q-8vc" id="3R2-x9-P3a"/>
+                            <outlet property="delegate" destination="OMp-3Q-8vc" id="6T4-J6-q7J"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Rmg-P7-LJ0"/>
+                    <navigationItem key="navigationItem" id="bou-aL-cSA"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLC-Jc-iaF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JXB-m2-0KL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CS8-Rl-ghO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qM0-uM-uuM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OMp-3Q-8vc" kind="relationship" relationship="rootViewController" id="i70-NU-I5C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wja-iD-u2g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>

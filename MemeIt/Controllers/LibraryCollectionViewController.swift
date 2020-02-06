@@ -1,5 +1,5 @@
 //
-//  LibraryViewController.swift
+//  LibraryCollectionViewController.swift
 //  MemeIt
 //
 //  Created by Chris Gonzales on 2/2/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchCollectionViewController: UICollectionViewController, ViewControllerMemeController {
+class LibraryCollectionViewController: UICollectionViewController, ViewControllerMemeController {
     
     //  MARK: - Properties
     
@@ -79,10 +79,10 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LibraryCell", for: indexPath) as? LibraryCollectionViewCell else { return UICollectionViewCell() }
         
         let imageData = filterMemes[indexPath.row].imageData
-        cell.searchImageView.image = UIImage(data: imageData)
+        cell.LibraryImageView.image = UIImage(data: imageData)
         
         return cell
     }
@@ -169,7 +169,7 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
 
 // MARK: - UICollectionviewDelegateFlowLayout
 
-extension SearchCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension LibraryCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let viewWidth = collectionView.frame.width - 8
@@ -184,7 +184,7 @@ extension SearchCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UITabelViewDelegate / UITableViewDataSource
 
-extension SearchCollectionViewController: UITableViewDelegate, UITableViewDataSource{
+extension LibraryCollectionViewController: UITableViewDelegate, UITableViewDataSource{
     
     // Search Table View Set Up
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

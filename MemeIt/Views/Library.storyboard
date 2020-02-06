@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search Collection View Controller-->
+        <!--Library Collection View Controller-->
         <scene sceneID="LHb-vs-nCB">
             <objects>
-                <collectionViewController id="jK4-dy-tfK" customClass="SearchCollectionViewController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="LibraryCollectionViewController" id="jK4-dy-tfK" customClass="LibraryCollectionViewController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="M63-4H-DYE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                             <inset key="sectionInset" minX="4" minY="4" maxX="4" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SearchCell" id="ZPA-2b-niB" customClass="SearchCollectionViewCell" customModule="MemeIt" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="LibraryCell" id="ZPA-2b-niB" customClass="LibraryCollectionViewCell" customModule="MemeIt" customModuleProvider="target">
                                 <rect key="frame" x="4" y="4" width="121" height="122"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oPO-Ev-Xf3">
@@ -42,7 +42,7 @@
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="121" height="122"/>
                                 <connections>
-                                    <outlet property="searchImageView" destination="DGf-Lt-iJD" id="FYF-aL-1Tv"/>
+                                    <outlet property="LibraryImageView" destination="DGf-Lt-iJD" id="7MV-bh-kdD"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

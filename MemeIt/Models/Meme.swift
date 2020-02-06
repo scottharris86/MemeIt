@@ -18,7 +18,7 @@ enum MemeCategory: String, CaseIterable{
     case personal = "Personal Reference"
 }
 
-class Meme: Codable{
+class Meme: Codable {
     
     var category: MemeCategory
     var imageData: Data
