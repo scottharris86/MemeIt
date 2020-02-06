@@ -11,33 +11,17 @@ import CoreGraphics
 
 
 class CreateMemeDetailViewController: UIViewController, ViewControllerMemeController {
+    
+    // MARK: - Properties
+    
+    var memeController: MemeController?
+    
+    // MARK: - Outlets and Actions
+    
     @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var memeTextField: UITextField!
     @IBOutlet weak var imageLabel: UILabel!
     @IBOutlet weak var labelBackground: UIView!
-    
-    var memeController: MemeController?
-    
-    
-    override func viewDidLoad() {
-        let imageTapped = UITapGestureRecognizer(target: self, action: #selector(addPhotoTapped))
-        memeImageView.isUserInteractionEnabled = true
-        memeTextField.delegate = self
-        imageLabel.text = ""
-        labelBackground.backgroundColor = UIColor(white: 0, alpha: 0.05)
-        memeImageView.addGestureRecognizer(imageTapped)
-    }
-    
-    @objc func addPhotoTapped() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.allowsEditing = true
-        imagePicker.delegate = self
-        present(imagePicker, animated: true)
-        
-        
-    }
-    
-    
     
     @IBAction func createTapped(_ sender: Any) {
         if let image = memeImageView.image {
@@ -45,7 +29,7 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
             let renderer = UIGraphicsImageRenderer(size: CGSize(width: size.width, height: size.height))
             let img = renderer.image { ctx in
                 let paragraphStyle = NSMutableParagraphStyle()
-                paragraphStyle.alignment = .left
+                paragraphStyle.alignment = .center
                 
                 image.draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: ctx.currentImage.size))
                 
@@ -82,6 +66,27 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
         
     }
     
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        let imageTapped = UITapGestureRecognizer(target: self, action: #selector(addPhotoTapped))
+        memeImageView.isUserInteractionEnabled = true
+        memeTextField.delegate = self
+        imageLabel.text = ""
+        labelBackground.backgroundColor = UIColor(white: 0, alpha: 0.05)
+        memeImageView.addGestureRecognizer(imageTapped)
+    }
+    
+    // MARK: - Methods
+    
+    @objc func addPhotoTapped() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        present(imagePicker, animated: true)
+        
+        
+    }
     
 }
 
@@ -113,5 +118,4 @@ extension CreateMemeDetailViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
 }
