@@ -15,14 +15,14 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
     let blackView = UIView()
     let slider = UIView()
     let alertTableView = UITableView()
-     var searchOptionArray: [String] {
+    var searchOptionArray: [String] {
         return ["Save to clipboard", isAFavorite(indexPath: lastSelectedMemeCell), "Delete"]
     }
     var filterMemes: [Meme]  {
-      return filteredMemes()
+        filteredMemes()
     }
     var lastSelectedMemeCell: IndexPath = IndexPath(item: 0, section: 0)
-     var memeController: MemeController?
+    var memeController: MemeController?
     
     // MARK: - Outlets and Actions
     
@@ -46,35 +46,35 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
             
             searchFilteredMemes = memeController.memeLibrary
             
-               switch SegmentedControl.selectedSegmentIndex {
-               case 0:
-                   break
-               case 1:
+            switch SegmentedControl.selectedSegmentIndex {
+            case 0:
+                break
+            case 1:
                 searchFilteredMemes = searchFilteredMemes.filter({
                     $0.category == .food
                 })
-               case 2:
-                   searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .movie })
-               case 3:
-                   searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .personal })
-               case 4:
-                   searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .sports })
-               case 5:
-                   searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .work })
-               case 6:
-                   searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .uncategorized })
-               default:
-                  break
-               }
-               }
+            case 2:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .movie })
+            case 3:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .personal })
+            case 4:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .sports })
+            case 5:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .work })
+            case 6:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .uncategorized })
+            default:
+                break
+            }
+        }
         return searchFilteredMemes
-              
+        
     }
     // MARK: - UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-             return filterMemes.count
+        return filterMemes.count
         
     }
     
@@ -83,8 +83,8 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
         
         let imageData = filterMemes[indexPath.row].imageData
         cell.searchImageView.image = UIImage(data: imageData)
-
-         return cell
+        
+        return cell
     }
     
     // MARK: UICollectionViewDelegate

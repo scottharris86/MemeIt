@@ -21,45 +21,81 @@ class FavoritesCollectionViewController: UICollectionViewController, ViewControl
         return ["Save to clipboard", isAFavorite(indexPath: lastSelectedMemeCell), "Delete"]
     }
     var lastSelectedMemeCell: IndexPath = IndexPath(item: 0, section: 0)
+    var filterMemes: [Meme]  {
+        filteredMemes()
+    }
     
-// MARK: - Lifecycle
-
+    //  MARK: - Methods
+    
+    func filteredMemes () -> [Meme] {
+        
+        var searchFilteredMemes: [Meme] = []
+        if let memeController = memeController{
+            
+            searchFilteredMemes = memeController.favoriteMemes
+            
+            switch FavoritesSegmentedControl.selectedSegmentIndex {
+            case 0:
+                break
+            case 1:
+                searchFilteredMemes = searchFilteredMemes.filter({
+                    $0.category == .food
+                })
+            case 2:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .movie })
+            case 3:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .personal })
+            case 4:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .sports })
+            case 5:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .work })
+            case 6:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .uncategorized })
+            default:
+                break
+            }
+        }
+        return searchFilteredMemes
+        
+    }
+    
+    // MARK: - Outlets and Actions
+    
+    @IBOutlet weak var FavoritesSegmentedControl: UISegmentedControl!
+    
+    @IBAction func FavoritesIndexChanged(_ sender: UISegmentedControl) {
+        collectionView.reloadData()
+    }
+    
+    // MARK: - Lifecycle
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         collectionView.reloadData()
     }
     
     // MARK: - Collection View Data Source
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return memeController?.favoriteMemes.count ?? 0
-        
-
+        return filterMemes.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCell", for: indexPath) as? MemeCollectionViewCell else { return UICollectionViewCell() }
         
-        if let imageData = memeController?.favoriteMemes[indexPath.row].imageData {
+        
+        let imageData = filterMemes[indexPath.row].imageData
         cell.memeImageView.image = UIImage(data: imageData)
-            cell.meme = memeController?.favoriteMemes[indexPath.row]
-        }
-        
-        
-         return cell
+        return cell
     }
     
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         lastSelectedMemeCell = indexPath
-        if let cell = collectionView.cellForItem(at: indexPath) as? MemeCollectionViewCell,
-            let meme = cell.meme{
+        let meme =  filterMemes[indexPath.item]
         alertShowSettings(meme: meme)
-        }
-        collectionView.reloadData()
     }
     
     // MARK:  - Methods
@@ -122,16 +158,14 @@ class FavoritesCollectionViewController: UICollectionViewController, ViewControl
     }
     
     func isAFavorite (indexPath: IndexPath) -> String{
-        guard let memeController = memeController,
-            memeController.favoriteMemes.count > indexPath.row
-        else {return String()}
-        let meme = memeController.favoriteMemes[indexPath.row]
+        
+        //guard indexPath.row < filterMemes.count else { return "" }
+        let meme = filterMemes[lastSelectedMemeCell.row]
         if meme.isFavorite{
             return "Remove from favorites"
         } else{
             return "Add to favorites"
         }
-        
     }
 }
 
@@ -148,40 +182,39 @@ extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout 
     
 }
 
- // MARK: - UITabelViewDelegate / UITableViewDataSource
+// MARK: - UITabelViewDelegate / UITableViewDataSource
 
- extension FavoritesCollectionViewController: UITableViewDelegate, UITableViewDataSource{
-     
-     // Search Table View Set Up
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         guard let cell = tableView.dequeueReusableCell(withIdentifier: staticValues.alertSearchCellName, for: indexPath) as? AlertSearchTableViewCell else {return UITableViewCell()}
-         cell.alertLabel.text = searchOptionArray[indexPath.row]
-         return cell
-     }
-     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         guard let memeController = memeController else {return}
-         let meme = memeController.favoriteMemes[lastSelectedMemeCell.row]
-         switch indexPath.row {
-         case 0:
-             memeController.addToClipboard(meme: meme)
-         case 1:
-             memeController.addToFavorites(meme: meme)
-         case 2:
-             deleteAlert(meme: meme)
-         default:
-             break
-         }
-         tableView.reloadData()
+extension FavoritesCollectionViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    // Search Table View Set Up
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: staticValues.alertSearchCellName, for: indexPath) as? AlertSearchTableViewCell else {return UITableViewCell()}
+        cell.alertLabel.text = searchOptionArray[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let meme = filterMemes[lastSelectedMemeCell.row]
+        
+        switch indexPath.row {
+        case 0:
+            memeController?.addToClipboard(meme: meme)
+        case 1:
+            memeController?.addToFavorites(meme: meme)
+        case 2:
+            deleteAlert(meme: meme)
+        default:
+            break
+        }
         collectionView.reloadData()
-         self.onTapTransparentView()
-     }
-     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-         return 3
-     }
-     
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 50
-     }
- }
+        self.onTapTransparentView()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+}

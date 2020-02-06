@@ -54,21 +54,27 @@
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="llv-9r-YSz"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="Xzo-Z0-xg7">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="MG7-bj-QoK">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bar" selectedSegmentIndex="0" id="MG7-bj-QoK">
                             <rect key="frame" x="12" y="5.5" width="390" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="All"/>
                                 <segment title="Food"/>
-                                <segment title="Movie"/>
-                                <segment title="Sport"/>
+                                <segment title="Movies"/>
                                 <segment title="Work"/>
+                                <segment title="Sports"/>
                                 <segment title="Personal"/>
                                 <segment title="Uncategorized"/>
                             </segments>
+                            <connections>
+                                <action selector="FavoritesIndexChanged:" destination="owE-VE-uvr" eventType="valueChanged" id="RHx-qN-LEp"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="FavoritesSegmentedControl" destination="MG7-bj-QoK" id="utl-bt-hEa"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AcQ-o6-S6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
