@@ -19,11 +19,11 @@
                             <size key="itemSize" width="121" height="121"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
+                            <inset key="sectionInset" minX="4" minY="4" maxX="4" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SearchCell" id="ZPA-2b-niB" customClass="SearchCollectionViewCell" customModule="MemeIt" customModuleProvider="target">
-                                <rect key="frame" x="2" y="2" width="121" height="122"/>
+                                <rect key="frame" x="4" y="4" width="121" height="122"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oPO-Ev-Xf3">
                                     <rect key="frame" x="0.0" y="0.0" width="121" height="122"/>
@@ -53,15 +53,15 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="cUT-67-YkG">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bar" selectedSegmentIndex="0" id="9bX-9m-JfL">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bar" selectedSegmentIndex="0" id="9bX-9m-JfL">
                             <rect key="frame" x="8" y="5.5" width="359" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="All"/>
                                 <segment title="Food"/>
                                 <segment title="Movies"/>
-                                <segment title="Sports"/>
                                 <segment title="Work"/>
+                                <segment title="Sports"/>
                                 <segment title="Personal"/>
                                 <segment title="Uncategorized"/>
                             </segments>

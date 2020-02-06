@@ -15,10 +15,14 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
     let blackView = UIView()
     let slider = UIView()
     let alertTableView = UITableView()
-    lazy var searchOptionArray = ["Save to clipboard", isAFavorite(indexPath: lastSelectedMemeCell), "Delete"]
-    lazy var filterMemes = memeController?.memeLibrary
+    var searchOptionArray: [String] {
+        return ["Save to clipboard", isAFavorite(indexPath: lastSelectedMemeCell), "Delete"]
+    }
+    var filterMemes: [Meme]  {
+        filteredMemes()
+    }
     var lastSelectedMemeCell: IndexPath = IndexPath(item: 0, section: 0)
-     var memeController: MemeController?
+    var memeController: MemeController?
     
     // MARK: - Outlets and Actions
     
@@ -26,54 +30,69 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
     
     @IBAction func IndexChanged(_ sender: UISegmentedControl) {
         
-        if let memeController = memeController{
-        switch SegmentedControl.selectedSegmentIndex {
-        case 0:
-            filterMemes = memeController.memeLibrary
-        case 1:
-            filterMemes = memeController.memeLibrary.filter({ $0.category == .food })
-        case 2:
-            filterMemes = memeController.memeLibrary.filter({ $0.category == .movie })
-        case 3:
-            filterMemes = memeController.memeLibrary.filter({ $0.category == .personal })
-        case 4:
-            filterMemes = memeController.memeLibrary.filter({ $0.category == .sports })
-        case 5:
-            filterMemes = memeController.memeLibrary.filter({ $0.category == .work })
-        case 6:
-            filterMemes = memeController.memeLibrary.filter({ $0.category == .uncategorized })
-        default:
-            filterMemes = memeController.memeLibrary
-        }
-        }
         collectionView.reloadData()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
+    
+    func filteredMemes () -> [Meme] {
+        
+        var searchFilteredMemes: [Meme] = []
+        if let memeController = memeController{
+            
+            searchFilteredMemes = memeController.memeLibrary
+            
+            switch SegmentedControl.selectedSegmentIndex {
+            case 0:
+                break
+            case 1:
+                searchFilteredMemes = searchFilteredMemes.filter({
+                    $0.category == .food
+                })
+            case 2:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .movie })
+            case 3:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .personal })
+            case 4:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .sports })
+            case 5:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .work })
+            case 6:
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .uncategorized })
+            default:
+                break
+            }
+        }
+        return searchFilteredMemes
+        
+    }
     // MARK: - UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let filterMemes = filterMemes{
-             return filterMemes.count
-        } else {return 0}
+        
+        return filterMemes.count
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
-        if let filterMemes = filterMemes{
+        
         let imageData = filterMemes[indexPath.row].imageData
         cell.searchImageView.image = UIImage(data: imageData)
-        }
-         return cell
+        
+        return cell
     }
     
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         lastSelectedMemeCell = indexPath
-        if let memeController = memeController{
-        let meme =  memeController.memeLibrary[indexPath.item]
+        let meme =  filterMemes[indexPath.item]
         alertShowSettings(meme: meme)
-        }
     }
     
     // MARK: - Methods
@@ -107,6 +126,7 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
         alertTableView.dataSource = self
         alertTableView.register(AlertSearchTableViewCell.self, forCellReuseIdentifier: staticValues.alertSearchCellName)
         alertTableView.isScrollEnabled = false
+        alertTableView.reloadData()
     }
     
     @objc func onTapTransparentView(){
@@ -135,8 +155,8 @@ class SearchCollectionViewController: UICollectionViewController, ViewController
     }
     
     func isAFavorite (indexPath: IndexPath) -> String{
-        guard let memeController = memeController else {return String()}
-        let meme = memeController.memeLibrary[lastSelectedMemeCell.row]
+        
+        let meme = filterMemes[lastSelectedMemeCell.row]
         if meme.isFavorite{
             return "Remove from favorites"
         } else{
@@ -187,6 +207,7 @@ extension SearchCollectionViewController: UITableViewDelegate, UITableViewDataSo
             break
         }
         tableView.reloadData()
+        collectionView.reloadData()
         self.onTapTransparentView()
     }
     
