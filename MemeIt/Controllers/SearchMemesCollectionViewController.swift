@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SearchMemesCollectionViewController: UICollectionViewController {
+class SearchMemesCollectionViewController: BaseCollectionViewController {
     
     var memes: [Meme] = []
     let searchController = UISearchController(searchResultsController: nil)
@@ -79,18 +79,5 @@ extension SearchMemesCollectionViewController: UISearchResultsUpdating, UISearch
     }
     
     
-    
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-
-extension SearchMemesCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let viewWidth = collectionView.frame.width - 8
-        let cellWidth = viewWidth / 3 - 2
-        let size = CGSize(width: cellWidth, height: cellWidth - 2)
-        return size
-        
-    }
     
 }

@@ -81,7 +81,7 @@
         <!--Library-->
         <scene sceneID="kq0-Y6-aCC">
             <objects>
-                <navigationController storyboardIdentifier="SearchCollectionViewController" automaticallyAdjustsScrollViewInsets="NO" id="c99-o6-vED" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SearchCollectionViewController" automaticallyAdjustsScrollViewInsets="NO" id="c99-o6-vED" customClass="BaseNavigationController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Library" image="photo.fill.on.rectangle.fill" catalog="system" id="RVR-UH-Uzf"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

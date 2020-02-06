@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LibraryCollectionViewController: UICollectionViewController, ViewControllerMemeController {
+class LibraryCollectionViewController: BaseCollectionViewController, ViewControllerMemeController {
     
     //  MARK: - Properties
     
@@ -85,14 +85,6 @@ class LibraryCollectionViewController: UICollectionViewController, ViewControlle
         cell.LibraryImageView.image = UIImage(data: imageData)
         
         return cell
-    }
-    
-    // MARK: UICollectionViewDelegate
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        lastSelectedMemeCell = indexPath
-        let meme =  filterMemes[indexPath.item]
-        alertShowSettings(meme: meme)
     }
     
     // MARK: - Methods

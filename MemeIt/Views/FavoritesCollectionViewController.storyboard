@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="1847.826086956522" y="141.96428571428569"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="7Zd-ts-KgH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eLo-aZ-faz" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eLo-aZ-faz" customClass="BaseNavigationController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="y8p-3v-Uzu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ghH-YE-Ixq">
