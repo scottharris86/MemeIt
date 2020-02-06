@@ -9,7 +9,7 @@
 import Foundation
 
 class ApiService {
-    let baseUrl = "https://api.giphy.com/v1/gifs/search?api_key=dIDvTkQU6tURps6uSdamXbLIjS1C1Cps&limit=25&offset=0&rating=PG-13&lang=en&q="
+    let baseUrl = "https://api.giphy.com/v1/gifs/search?api_key=<KEY HERE!!!>&limit=25&offset=0&rating=PG-13&lang=en&q="
     
     static let sharedInstance = ApiService()
     
