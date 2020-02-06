@@ -78,11 +78,11 @@
             </objects>
             <point key="canvasLocation" x="2092" y="135.38230884557723"/>
         </scene>
-        <!--Search-->
+        <!--Library-->
         <scene sceneID="kq0-Y6-aCC">
             <objects>
                 <navigationController storyboardIdentifier="SearchCollectionViewController" automaticallyAdjustsScrollViewInsets="NO" id="c99-o6-vED" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="photo.fill.on.rectangle.fill" catalog="system" id="RVR-UH-Uzf"/>
+                    <tabBarItem key="tabBarItem" title="Library" image="photo.fill.on.rectangle.fill" catalog="system" id="RVR-UH-Uzf"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QU6-EK-zFA">
