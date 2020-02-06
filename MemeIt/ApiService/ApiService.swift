@@ -9,7 +9,7 @@
 import Foundation
 
 class ApiService {
-    let baseUrl = "https://api.giphy.com/v1/gifs/search?api_key=XeYLtK3j64US8ww7nt9ZfSwdNmwyMil4&limit=25&offset=0&rating=PG-13&lang=en&q="
+    let baseUrl = "https://api.giphy.com/v1/gifs/search?api_key=XeYLtK3j64US8ww7nt9ZfSwdNmwyMil4&limit=100&offset=0&rating=PG-13&lang=en&q="
     
     static let sharedInstance = ApiService()
     
@@ -41,7 +41,7 @@ class ApiService {
                                     if let title = obj["title"] as? String,
                                         let id = obj["id"] as? String {
                                         if let images = obj["images"] as? [String: AnyObject] {
-                                            if let whatIWant = images["downsized_still"] as? [String: String] {
+                                            if let whatIWant = images["original_still"] as? [String: String] {
                                                 if let imageURL = whatIWant["url"],
                                                     let url = URL(string: imageURL) {
                                                     

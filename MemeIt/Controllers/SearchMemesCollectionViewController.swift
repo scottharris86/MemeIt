@@ -32,6 +32,13 @@ class SearchMemesCollectionViewController: UICollectionViewController {
         // 6
         searchController.searchBar.delegate = self
         
+        searchController.searchBar.searchBarStyle = .prominent
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.isTranslucent = false
+        searchController.searchBar.searchTextField.backgroundColor = .white
+        searchController.searchBar.searchTextField.defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemBackground]
+        searchController.searchBar.searchTextField.leftView?.tintColor = .systemGray
+
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
