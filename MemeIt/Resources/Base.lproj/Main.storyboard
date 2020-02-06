@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="1151" y="-252"/>
         </scene>
-        <!--SearchCollectionViewController-->
+        <!--Library-->
         <scene sceneID="22O-3o-rKG">
             <objects>
-                <viewControllerPlaceholder storyboardName="Search" referencedIdentifier="SearchCollectionViewController" id="O8c-uI-czN" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Library" id="O8c-uI-czN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="g6W-E2-HEe"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GnH-3I-z3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
