@@ -20,10 +20,11 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdS-fb-nfw">
                                         <rect key="frame" x="0.0" y="0.0" width="255" height="46"/>
-                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.017986215650000002" green="0.34339994190000001" blue="0.87455719710000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Food">
-                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="foodSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="hEx-Fk-upM"/>
@@ -31,10 +32,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2k9-kc-GaO">
                                         <rect key="frame" x="0.0" y="66" width="255" height="46"/>
-                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.017986215650000002" green="0.34339994190000001" blue="0.87455719710000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Movies">
-                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="moviesSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="FQ7-cA-F96"/>
@@ -42,10 +44,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wop-Tk-SKC">
                                         <rect key="frame" x="0.0" y="132" width="255" height="46"/>
-                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.017986215650000002" green="0.34339994190000001" blue="0.87455719710000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Sports">
-                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="sportsSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="urR-18-rUt"/>
@@ -53,10 +56,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ht-ln-5Pl">
                                         <rect key="frame" x="0.0" y="198" width="255" height="46"/>
-                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.017986215650000002" green="0.34339994190000001" blue="0.87455719710000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Work">
-                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="workSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="XEC-ba-4zC"/>
@@ -64,10 +68,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNa-8t-3b3">
                                         <rect key="frame" x="0.0" y="264" width="255" height="46"/>
-                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.017986215650000002" green="0.34339994190000001" blue="0.87455719710000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Personal">
-                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="personalSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="laz-tS-HPR"/>
@@ -75,10 +80,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="On9-i9-E3A">
                                         <rect key="frame" x="0.0" y="330" width="255" height="46"/>
-                                        <color key="backgroundColor" red="0.52253007890000003" green="0.64745390420000004" blue="0.79933530090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.017986215650000002" green="0.34339994190000001" blue="0.87455719710000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="None">
-                                            <color key="titleColor" red="0.1913414299" green="0.223701328" blue="0.36244946719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="noneSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="Sgo-Lv-zTT"/>
