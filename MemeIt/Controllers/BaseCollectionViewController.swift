@@ -9,7 +9,10 @@
 import UIKit
 
 class BaseCollectionViewController: UICollectionViewController {
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionView.backgroundColor = .systemGray6
+    }
 }
 
 
