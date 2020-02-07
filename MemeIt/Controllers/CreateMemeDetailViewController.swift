@@ -27,6 +27,8 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
     var memeController: MemeController?
     var meme: Meme?
     
+    
+    
     @IBAction func createTapped(_ sender: Any) {
         
         if let image = memeImageView.image {
@@ -66,6 +68,12 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
     
     // MARK: - Lifecycle
     
+    override func viewDidLoad() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let imageTapped = UITapGestureRecognizer(target: self, action: #selector(addPhotoTapped))
@@ -94,6 +102,25 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
         imageLabel.text = ""
         labelBackground.backgroundColor = UIColor(white: 0, alpha: 0.05)
         
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        
+        guard let userInfo = notification.userInfo else {return}
+        let keyboardFrame = keyboardValue.cgRectValue
+        
+//        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+//        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+        } else {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardFrame.height - 80
+            }
+        }
     }
     
     // MARK: - Navigation
@@ -125,6 +152,7 @@ extension CreateMemeDetailViewController: UIImagePickerControllerDelegate, UINav
 }
 
 extension CreateMemeDetailViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text {
             imageLabel.text =  text + string
