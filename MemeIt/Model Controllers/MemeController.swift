@@ -80,9 +80,11 @@ class MemeController {
            guard let memeLibraryURL = memeLibraryURL else { return }
            
            let encoder = PropertyListEncoder()
-           do{
-               let listData = try encoder.encode(memeLibrary)
-            try listData.write(to: memeLibraryURL)
+           do {
+            
+                let listData = try encoder.encode(memeLibrary)
+                try listData.write(to: memeLibraryURL)
+            
         } catch {
             print("Error encoding books array: \(error)")
         }
@@ -92,12 +94,12 @@ class MemeController {
         
         guard let memeLibraryURL = memeLibraryURL else { return }
         
-        do{
+        do {
             let decoder = PropertyListDecoder()
             let memeLibraryData = try Data(contentsOf: memeLibraryURL)
             let memeLibraryArray = try decoder.decode([Meme].self, from: memeLibraryData)
             memeLibrary = memeLibraryArray
-        } catch{
+        } catch {
             print("Error decoding readList: \(error)")
         }
     }
@@ -114,5 +116,6 @@ class MemeController {
         guard let image = UIImage(named: image),
         let pngData = image.pngData() else {return Data()}
         return pngData
+        
      }
 }

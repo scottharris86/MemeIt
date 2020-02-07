@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add photo" translatesAutoresizingMaskIntoConstraints="NO" id="05N-Ew-SH6">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_photo" translatesAutoresizingMaskIntoConstraints="NO" id="05N-Ew-SH6">
                                 <rect key="frame" x="20" y="94" width="374" height="374"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xl8-3h-QVo">
@@ -30,7 +30,7 @@
                                 </state>
                                 <connections>
                                     <action selector="createTapped:" destination="hrW-GO-ubX" eventType="touchUpInside" id="P6W-Wk-M7b"/>
-                                    <segue destination="SnV-Ur-WcD" kind="presentation" identifier="ChooseCategorySegue" id="rNA-81-yOH"/>
+                                    <segue destination="SnV-Ur-WcD" kind="show" identifier="ChooseCategorySegue" id="rNA-81-yOH"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w9W-Q9-mnd">
@@ -93,14 +93,16 @@
         <!--CategorySelection-->
         <scene sceneID="92m-wZ-vwK">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="CategorySelectionViewController" storyboardName="CategorySelection" id="SnV-Ur-WcD" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="CategorySelectionViewController" storyboardName="CategorySelection" id="SnV-Ur-WcD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Eub-UI-BJx"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAA-6g-aDL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1865" y="114"/>
         </scene>
     </scenes>
     <resources>
-        <image name="add photo" width="512" height="512"/>
+        <image name="add_photo" width="512" height="512"/>
         <image name="camera.fill" catalog="system" width="64" height="48"/>
     </resources>
 </document>
