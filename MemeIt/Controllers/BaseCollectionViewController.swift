@@ -17,7 +17,7 @@ class BaseCollectionViewController: UICollectionViewController {
 
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension FavoritesCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension BaseCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let viewWidth = collectionView.frame.width - 8
         let cellWidth = viewWidth / 3 - 2

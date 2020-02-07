@@ -70,6 +70,16 @@ class LibraryCollectionViewController: BaseCollectionViewController, ViewControl
         return searchFilteredMemes
         
     }
+    
+    // MARK: UICollectionViewDelegate
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        lastSelectedMemeCell = indexPath
+        let meme =  filterMemes[indexPath.item]
+        alertShowSettings(meme: meme)
+    }
+    
+    
     // MARK: - UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -158,21 +168,6 @@ class LibraryCollectionViewController: BaseCollectionViewController, ViewControl
     }
 }
 
-
-// MARK: - UICollectionviewDelegateFlowLayout
-
-extension LibraryCollectionViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let viewWidth = collectionView.frame.width - 8
-        let cellWidth = viewWidth / 3 - 2
-        print(cellWidth)
-        let size = CGSize(width: cellWidth, height: cellWidth - 2)
-        return size
-    }
-    
-    
-}
 
 // MARK: - UITabelViewDelegate / UITableViewDataSource
 

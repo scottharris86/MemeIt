@@ -14,8 +14,6 @@ class SearcMemeDetailViewController: UIViewController {
         super.viewDidLoad()
         let imageView = UIImageView(image: UIImage(named: "Meme_title"))
         
-        
-        
         navigationItem.titleView = imageView
 
     }
