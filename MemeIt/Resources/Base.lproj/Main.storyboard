@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c6d-rh-KHe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wk7-x3-Can">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Meme Tab Bar Controller-->
-        <scene sceneID="7Si-QV-0b5">
+        <!--Item-->
+        <scene sceneID="cL9-iq-a4C">
             <objects>
-                <tabBarController id="c6d-rh-KHe" customClass="MemeTabBarController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="88k-FT-l5s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                <navigationController id="eYi-cM-lX9" customClass="BaseNavigationController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="i0Y-W3-K0R"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="353-rj-MJg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
+                    </navigationBar>
                     <connections>
-                        <segue destination="Wlt-cy-Wsm" kind="relationship" relationship="viewControllers" id="j2W-A5-X11"/>
-                        <segue destination="O8c-uI-czN" kind="relationship" relationship="viewControllers" id="Ux5-yJ-8sZ"/>
-                        <segue destination="tay-uw-iru" kind="relationship" relationship="viewControllers" id="53S-u8-5mH"/>
-                        <segue destination="hmz-XO-att" kind="relationship" relationship="viewControllers" id="Abt-e5-uui"/>
+                        <segue destination="tay-uw-iru" kind="relationship" relationship="rootViewController" id="Ibi-qm-u0s"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XTg-zB-Sne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cm0-hE-bUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="413" y="159"/>
+            <point key="canvasLocation" x="1568" y="-793"/>
         </scene>
         <!--CreateMemeDetailViewController-->
         <scene sceneID="FtF-qr-ti8">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="CreateDetailViewController" storyboardName="CreateMemeDetailViewController" id="tay-uw-iru" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="IMx-2j-Up2"/>
+                    <navigationItem key="navigationItem" id="YVw-uK-deK"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3um-28-MTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="-252"/>
+            <point key="canvasLocation" x="2291" y="-776"/>
         </scene>
         <!--SearchMemesCollectionViewController-->
         <scene sceneID="bNi-VI-anc">
@@ -44,7 +42,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQy-S7-s7e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260" y="-77"/>
+            <point key="canvasLocation" x="1595" y="-160"/>
         </scene>
         <!--Library-->
         <scene sceneID="22O-3o-rKG">
@@ -54,17 +52,38 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GnH-3I-z3L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279" y="80"/>
+            <point key="canvasLocation" x="1626" y="-325"/>
         </scene>
         <!--FavoritesCollectionViewController-->
         <scene sceneID="i91-Va-dOG">
             <objects>
                 <viewControllerPlaceholder storyboardName="FavoritesCollectionViewController" id="Wlt-cy-Wsm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="v5K-Qk-eHG"/>
+                    <navigationItem key="navigationItem" id="88t-Pp-Rsj"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3S-a5-gw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="351"/>
+            <point key="canvasLocation" x="2011" y="-402"/>
+        </scene>
+        <!--Meme Tab Bar Controller-->
+        <scene sceneID="qPE-1S-IVO">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wk7-x3-Can" customClass="MemeTabBarController" customModule="MemeIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AVE-mL-VKD">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Wlt-cy-Wsm" kind="relationship" relationship="viewControllers" id="S9q-Gx-8AL"/>
+                        <segue destination="O8c-uI-czN" kind="relationship" relationship="viewControllers" id="eU5-ek-mMy"/>
+                        <segue destination="eYi-cM-lX9" kind="relationship" relationship="viewControllers" id="E2e-vm-1ic"/>
+                        <segue destination="hmz-XO-att" kind="relationship" relationship="viewControllers" id="9aa-mu-3KI"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xe4-fe-rVb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="482.60869565217394" y="-528.34821428571422"/>
         </scene>
     </scenes>
 </document>

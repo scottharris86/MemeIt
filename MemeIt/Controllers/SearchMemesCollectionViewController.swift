@@ -64,6 +64,17 @@ class SearchMemesCollectionViewController: BaseCollectionViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MemeDetailShowSegue" {
+            if let detailVC = segue.destination as? CreateMemeDetailViewController {
+                if let index = collectionView.indexPathsForSelectedItems?.first {
+                    let meme = memes[index.item]
+                    detailVC.meme = meme
+                }
+            }
+        }
+    }
+    
 }
 
 extension SearchMemesCollectionViewController: UISearchResultsUpdating, UISearchBarDelegate {
