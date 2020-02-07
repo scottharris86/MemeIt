@@ -60,6 +60,7 @@ class SearchMemesCollectionViewController: BaseCollectionViewController, ViewCon
     
     func fetchMemes(_ searchText: String) {
         let spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = .white
         
         let backView = UIView()
         backView.backgroundColor = UIColor(white: 0, alpha: 0.7)
@@ -82,8 +83,6 @@ class SearchMemesCollectionViewController: BaseCollectionViewController, ViewCon
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        navigationController?.view.addSubview(activityIndicator)
-        navigationController?.view.bringSubviewToFront(activityIndicator)
         ApiService.sharedInstance.fetchMemesForKeyword(keyword: searchText) { (memes: [Meme]) in
             self.memes = memes
             self.collectionView.reloadData()
