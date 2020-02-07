@@ -14,8 +14,11 @@ class BaseNavigationController: UINavigationController {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.backgroundColor = UIColor(red: 0 / 255, green: 87 / 255, blue: 231 / 255, alpha: 1)
+    
         navBarAppearance.shadowImage = nil
         navBarAppearance.shadowColor = nil
+        
+        navigationBar.tintColor = .white
         navigationBar.overrideUserInterfaceStyle = .dark
         navigationBar.standardAppearance = navBarAppearance
         navigationBar.scrollEdgeAppearance = navBarAppearance

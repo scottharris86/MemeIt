@@ -12,10 +12,7 @@ import CoreGraphics
 
 class CreateMemeDetailViewController: UIViewController, ViewControllerMemeController {
     
-    // MARK: - Properties
-    
-    var memeController: MemeController?
-    var meme: Meme?
+
 //    var newMeme: Meme?
     
     // MARK: - Outlets and Actions
@@ -24,6 +21,15 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
     @IBOutlet weak var memeTextField: UITextField!
     @IBOutlet weak var imageLabel: UILabel!
     @IBOutlet weak var labelBackground: UIView!
+    
+    // MARK: - Properties
+    
+    var memeController: MemeController?
+    var meme: Meme? {
+        didSet {
+//            updateViews()
+        }
+    }
     
     @IBAction func createTapped(_ sender: Any) {
         
@@ -64,12 +70,10 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
     
     // MARK: - Lifecycle
     
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let imageTapped = UITapGestureRecognizer(target: self, action: #selector(addPhotoTapped))
-        memeImageView.isUserInteractionEnabled = true
-        memeTextField.delegate = self
-        imageLabel.text = ""
-        labelBackground.backgroundColor = UIColor(white: 0, alpha: 0.05)
+        updateViews()
         memeImageView.addGestureRecognizer(imageTapped)
     }
     
@@ -80,6 +84,19 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         present(imagePicker, animated: true)
+    }
+    
+    func updateViews() {
+        if let meme = meme {
+            memeImageView.image = meme.image
+        } else {
+            memeImageView.image = UIImage(named: "add_photo")
+        }
+        memeImageView.isUserInteractionEnabled = true
+        memeTextField.delegate = self
+        imageLabel.text = ""
+        labelBackground.backgroundColor = UIColor(white: 0, alpha: 0.05)
+        
     }
     
     // MARK: - Navigation
