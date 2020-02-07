@@ -64,7 +64,7 @@
                                 <segment title="Work"/>
                                 <segment title="Sports"/>
                                 <segment title="Personal"/>
-                                <segment title="Uncategorized"/>
+                                <segment title="Misc"/>
                             </segments>
                             <connections>
                                 <action selector="FavoritesIndexChanged:" destination="owE-VE-uvr" eventType="valueChanged" id="RHx-qN-LEp"/>
