@@ -11,6 +11,7 @@ import UIKit
 
 class SearchMemesCollectionViewController: BaseCollectionViewController, ViewControllerMemeController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var memeController: MemeController?
     
     var memes: [Meme] = []
@@ -58,10 +59,37 @@ class SearchMemesCollectionViewController: BaseCollectionViewController, ViewCon
     }
     
     func fetchMemes(_ searchText: String) {
+        let spinner = UIActivityIndicatorView(style: .large)
+        
+        let backView = UIView()
+        backView.backgroundColor = UIColor(white: 0, alpha: 0.7)
+        view.addSubview(backView)
+        view.bringSubviewToFront(backView)
+        
+        backView.translatesAutoresizingMaskIntoConstraints = false
+        
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+        backView.addSubview(spinner)
+        
+        
+        backView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        backView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        backView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        backView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        
+        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        navigationController?.view.addSubview(activityIndicator)
+        navigationController?.view.bringSubviewToFront(activityIndicator)
         ApiService.sharedInstance.fetchMemesForKeyword(keyword: searchText) { (memes: [Meme]) in
             self.memes = memes
             self.collectionView.reloadData()
             self.searchController.searchBar.text = ""
+            backView.removeFromSuperview()
+            spinner.stopAnimating()
             
         }
     }
