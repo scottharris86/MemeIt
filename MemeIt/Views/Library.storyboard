@@ -63,7 +63,7 @@
                                 <segment title="Work"/>
                                 <segment title="Sports"/>
                                 <segment title="Personal"/>
-                                <segment title="Uncategorized"/>
+                                <segment title="Misc"/>
                             </segments>
                             <connections>
                                 <action selector="IndexChanged:" destination="jK4-dy-tfK" eventType="valueChanged" id="wKf-nt-URA"/>
