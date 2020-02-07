@@ -122,6 +122,7 @@ class FavoritesCollectionViewController: BaseCollectionViewController, ViewContr
             slider.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
             // Table View Set Up
             alertTableView.frame =   CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
+            alertTableView.separatorColor = .clear
             window.addSubview(alertTableView)
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.blackView.alpha = 1
@@ -182,6 +183,16 @@ extension FavoritesCollectionViewController: UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: staticValues.alertSearchCellName, for: indexPath) as? AlertSearchTableViewCell else {return UITableViewCell()}
         cell.alertLabel.text = searchOptionArray[indexPath.row]
+        switch indexPath.row {
+            case 0:
+                cell.alertImageView.image = UIImage(systemName: "checkmark")?.withTintColor(.label, renderingMode: .alwaysOriginal)
+            case 1:
+                cell.alertImageView.image = UIImage(systemName: "star")?.withTintColor(.label, renderingMode: .alwaysOriginal)
+            case 2:
+                cell.alertImageView.image = UIImage(systemName: "trash")?.withTintColor(.label, renderingMode: .alwaysOriginal)
+            default:
+                break
+        }
         return cell
     }
     

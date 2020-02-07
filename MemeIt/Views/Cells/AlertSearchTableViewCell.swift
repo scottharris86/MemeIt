@@ -15,13 +15,19 @@ class AlertSearchTableViewCell: UITableViewCell {
     }()
     
     lazy var alertLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 20, y: 0, width: self.frame.width - 20, height: 30))
+        let label = UILabel(frame: CGRect(x: 40, y: 0, width: self.frame.width - 20, height: 50))
         return label
+    }()
+    
+    lazy var alertImageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 10, y: 15, width: 20, height: 20))
+        return imageView
     }()
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         addSubview(alertBackView)
         alertBackView.addSubview(alertLabel)
+        alertBackView.addSubview(alertImageView)
     }
 }
