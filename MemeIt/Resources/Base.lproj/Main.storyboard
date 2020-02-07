@@ -24,7 +24,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTg-zB-Sne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="413" y="159"/>
+            <point key="canvasLocation" x="120" y="19"/>
         </scene>
         <!--CreateMemeDetailViewController-->
         <scene sceneID="FtF-qr-ti8">
@@ -34,7 +34,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3um-28-MTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="-252"/>
+            <point key="canvasLocation" x="1553" y="-376"/>
         </scene>
         <!--SearchMemesCollectionViewController-->
         <scene sceneID="bNi-VI-anc">
@@ -64,7 +64,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3S-a5-gw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="351"/>
+            <point key="canvasLocation" x="1195" y="454"/>
         </scene>
     </scenes>
 </document>
