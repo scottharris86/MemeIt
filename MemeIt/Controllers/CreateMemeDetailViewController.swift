@@ -25,11 +25,7 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
     // MARK: - Properties
     
     var memeController: MemeController?
-    var meme: Meme? {
-        didSet {
-//            updateViews()
-        }
-    }
+    var meme: Meme?
     
     @IBAction func createTapped(_ sender: Any) {
         
@@ -64,7 +60,7 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
                 memeController?.createMeme(meme: meme)
                 self.meme = meme
             }
-//            tabBarController?.selectedIndex = 0
+
         }
     }
     
@@ -89,6 +85,7 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
     func updateViews() {
         if let meme = meme {
             memeImageView.image = meme.image
+            labelBackground.alpha = 1
         } else {
             memeImageView.image = UIImage(named: "add_photo")
         }
@@ -104,9 +101,11 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ChooseCategorySegue"{
             guard let categorySelectionVC = segue.destination as? CategorySelectionViewController,
-                let passedMeme = meme else { return }
-            
-                categorySelectionVC.meme = passedMeme
+                let passedMeme = meme,
+                let memeController = memeController else { return }
+            categorySelectionVC.meme = passedMeme
+            categorySelectionVC.memeController = memeController
+                
           
         }
     }

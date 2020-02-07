@@ -22,9 +22,9 @@ class ApiService {
         let search = keyword
         
         if let safe = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-           let full = "\(baseUrl)\(safe)"
-        
-
+            let full = "\(baseUrl)\(safe)"
+            
+            
             if let url = URL(string: full) {
                 URLSession.shared.dataTask(with: url) { (data, response, error) in
                     if let error = error {
@@ -38,39 +38,36 @@ class ApiService {
                             
                             if let objects = jsonDictionaries["data"] as? [[String: AnyObject]] {
                                 for obj in objects {
-                                    if let title = obj["title"] as? String,
-                                        let id = obj["id"] as? String {
-                                        if let images = obj["images"] as? [String: AnyObject] {
-                                            if let whatIWant = images["original_still"] as? [String: String] {
-                                                if let imageURL = whatIWant["url"],
-                                                    let url = URL(string: imageURL) {
-                                                    
-                                                    do {
-                                                        let data = try Data(contentsOf: url)
-                                                        let meme = Meme(category: .Uncategorized, imageData: data)
-                                                        memes.append(meme)
-                                                        
-
-                                                        let str = "erfwefewf"
-                                                    } catch {
-                                                        print(error)
-                                                    }
+                                    if let images = obj["images"] as? [String: AnyObject] {
+                                        if let whatIWant = images["original_still"] as? [String: String] {
+                                            if let imageURL = whatIWant["url"],
+                                                let url = URL(string: imageURL) {
+                                                
+                                                do {
+                                                    let data = try Data(contentsOf: url)
+                                                    let meme = Meme(category: .Uncategorized, imageData: data)
+                                                    memes.append(meme)
                                                     
                                                     
+                                                    
+                                                } catch {
+                                                    print(error)
                                                 }
                                                 
                                                 
                                             }
                                             
+                                            
                                         }
                                         
                                     }
+                                    
                                     
                                 }
                                 DispatchQueue.main.async {
                                     completion(memes)
                                 }
-
+                                
                             }
                             
                         }
@@ -82,14 +79,14 @@ class ApiService {
                     }
                     
                     
-                   
                     
-                    }.resume()
-                 
+                    
+                }.resume()
+                
             }
         }
         
     }
-
+    
     
 }

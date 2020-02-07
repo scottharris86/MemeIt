@@ -8,54 +8,80 @@
 
 import UIKit
 
-class CategorySelectionViewController: UIViewController {
+class CategorySelectionViewController: UIViewController, ViewControllerMemeController {
 
 
-    var meme: Meme?{
-        didSet{
-            print("success")
+    var meme: Meme?
+    var memeController: MemeController?
+    
+    func resetViews() {
+        tabBarController?.selectedIndex = 0
+        if let createVc = navigationController?.viewControllers.first as? CreateMemeDetailViewController {
+            createVc.meme = nil
+            createVc.memeTextField.text = ""
+            navigationController?.popViewController(animated: false)
+        } else {
+            if let createVc = navigationController?.viewControllers[1] as? CreateMemeDetailViewController {
+                createVc.meme = nil
+                createVc.memeTextField.text = ""
+                navigationController?.popToRootViewController(animated: false)
+            }
         }
+        
     }
-    let memeController = MemeController()
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-    }
     
     @IBAction func foodSelected(_ sender: UIButton) {
         guard let unwrappedMeme = meme else {return}
-        unwrappedMeme.category = .Food
-        memeController.saveToPersistentStore()
+        if let memeController = memeController {
+            memeController.changeCategory(meme: unwrappedMeme, category: .Food)
+            resetViews()
+            
+        }
         
     }
     @IBAction func moviesSelected(_ sender: Any) {
         guard let unwrappedMeme = meme else {return}
-        unwrappedMeme.category = .Movie
-        memeController.saveToPersistentStore()
+        if let memeController = memeController {
+            memeController.changeCategory(meme: unwrappedMeme, category: .Movie)
+            resetViews()
+            
+        }
         
     }
     @IBAction func sportsSelected(_ sender: Any) {
         guard let unwrappedMeme = meme else {return}
-        unwrappedMeme.category = .Sports
-        memeController.saveToPersistentStore()
+        if let memeController = memeController {
+            memeController.changeCategory(meme: unwrappedMeme, category: .Sports)
+            resetViews()
+            
+        }
+
     }
     @IBAction func workSelected(_ sender: Any) {
         guard let unwrappedMeme = meme else {return}
-        unwrappedMeme.category = .Work
-        memeController.saveToPersistentStore()
+        if let memeController = memeController {
+            memeController.changeCategory(meme: unwrappedMeme, category: .Work)
+            resetViews()
+            
+        }
     }
     @IBAction func personalSelected(_ sender: Any) {
         guard let unwrappedMeme = meme else {return}
-        unwrappedMeme.category = .Personal
-        memeController.saveToPersistentStore()
-    }
-    @IBAction func noneSelected(_ sender: Any) {
-        guard let unwrappedMeme = meme else {return}
-        unwrappedMeme.category = .Uncategorized
-        memeController.saveToPersistentStore()
+        if let memeController = memeController {
+            memeController.changeCategory(meme: unwrappedMeme, category: .Personal)
+            resetViews()
+            
+        }
     }
     
-
+    @IBAction func noneSelected(_ sender: Any) {
+        guard let unwrappedMeme = meme else {return}
+        if let memeController = memeController {
+            memeController.changeCategory(meme: unwrappedMeme, category: .Uncategorized)
+            resetViews()
+            
+        }
+    }
+    
 }

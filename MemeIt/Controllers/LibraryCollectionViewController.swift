@@ -56,11 +56,11 @@ class LibraryCollectionViewController: BaseCollectionViewController, ViewControl
             case 2:
                 searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Movie })
             case 3:
-                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Personal })
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Work })
             case 4:
                 searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Sports })
             case 5:
-                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Work })
+                searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Personal })
             case 6:
                 searchFilteredMemes = searchFilteredMemes.filter({ $0.category == .Uncategorized })
             default:

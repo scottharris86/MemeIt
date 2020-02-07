@@ -9,7 +9,9 @@
 import UIKit
 
 
-class SearchMemesCollectionViewController: BaseCollectionViewController {
+class SearchMemesCollectionViewController: BaseCollectionViewController, ViewControllerMemeController {
+    
+    var memeController: MemeController?
     
     var memes: [Meme] = []
     let searchController = UISearchController(searchResultsController: nil)
@@ -70,6 +72,10 @@ class SearchMemesCollectionViewController: BaseCollectionViewController {
                 if let index = collectionView.indexPathsForSelectedItems?.first {
                     let meme = memes[index.item]
                     detailVC.meme = meme
+                    if let memeController = memeController {
+                        detailVC.memeController = memeController
+                    }
+                    
                 }
             }
         }

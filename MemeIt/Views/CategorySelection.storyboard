@@ -27,7 +27,6 @@
                                         </state>
                                         <connections>
                                             <action selector="foodSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="hEx-Fk-upM"/>
-                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="AZ3-NN-w3s"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2k9-kc-GaO">
@@ -39,7 +38,6 @@
                                         </state>
                                         <connections>
                                             <action selector="moviesSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="FQ7-cA-F96"/>
-                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="nRy-me-dgw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wop-Tk-SKC">
@@ -51,7 +49,6 @@
                                         </state>
                                         <connections>
                                             <action selector="sportsSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="urR-18-rUt"/>
-                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="KML-oq-e8L"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ht-ln-5Pl">
@@ -63,7 +60,6 @@
                                         </state>
                                         <connections>
                                             <action selector="workSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="XEC-ba-4zC"/>
-                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="cgh-Jw-BEd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNa-8t-3b3">
@@ -75,7 +71,6 @@
                                         </state>
                                         <connections>
                                             <action selector="personalSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="laz-tS-HPR"/>
-                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="Qrq-gy-rkW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="On9-i9-E3A">
@@ -87,7 +82,6 @@
                                         </state>
                                         <connections>
                                             <action selector="noneSelected:" destination="2Ah-jY-feo" eventType="touchUpInside" id="Sgo-Lv-zTT"/>
-                                            <segue destination="wd3-hI-Q2V" kind="unwind" unwindAction="unwindToFavorites:" id="spu-Bd-P54"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -118,7 +112,6 @@
                     <navigationItem key="navigationItem" title="Select a Meme Catergory" largeTitleDisplayMode="always" id="NVK-Ea-s5y"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePE-8T-gEi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="wd3-hI-Q2V" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1169" y="107"/>
         </scene>
