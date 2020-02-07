@@ -63,7 +63,7 @@
         <!--CreateMemeDetailViewController-->
         <scene sceneID="UPH-sa-WqH">
             <objects>
-                <viewControllerPlaceholder storyboardName="CreateMemeDetailViewController" id="5KQ-nI-IVC" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="CreateDetailViewController" storyboardName="CreateMemeDetailViewController" id="5KQ-nI-IVC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="EKZ-jK-SQA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ku1-FI-gZd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
