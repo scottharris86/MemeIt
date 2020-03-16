@@ -91,8 +91,10 @@ class LibraryCollectionViewController: BaseCollectionViewController, ViewControl
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LibraryCell", for: indexPath) as? LibraryCollectionViewCell else { return UICollectionViewCell() }
         
-        let imageData = filterMemes[indexPath.row].imageData
-        cell.LibraryImageView.image = UIImage(data: imageData)
+        if let imageData = filterMemes[indexPath.row].imageData {
+           cell.LibraryImageView.image = UIImage(data: imageData)
+        }
+        
         
         return cell
     }
@@ -160,7 +162,7 @@ class LibraryCollectionViewController: BaseCollectionViewController, ViewControl
     func isAFavorite (indexPath: IndexPath) -> String{
         
         let meme = filterMemes[lastSelectedMemeCell.row]
-        if meme.isFavorite{
+        if let _ = meme.isFavorite {
             return "Remove from favorites"
         } else{
             return "Add to favorites"

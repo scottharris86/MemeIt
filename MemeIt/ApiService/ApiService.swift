@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class ApiService {
     // NETWORK REQUEST EXAMPLE
@@ -60,13 +60,47 @@ class ApiService {
             
             let jsonDecoder = JSONDecoder()
             do {
-                let memes = try jsonDecoder.decode([Meme].self, from: data)
-                completion(.success(memes))
+                let memes = try jsonDecoder.decode(MemeData.self, from: data)
+                
+                completion(.success(memes.data))
             } catch {
                 NSLog("Error decoding Memes: \(error)")
                 completion(.failure(.noDecode))
                 return
             }
+            
+        }.resume()
+        
+    }
+    
+    func fetchImage(at urlString: String, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
+        guard let imageURL = URL(string: urlString) else {
+            NSLog("Bad Image URL String")
+            completion(.failure(.badUrl))
+            return
+        }
+        
+        let request = URLRequest(url: imageURL)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                NSLog("Network Error Getting Image: \(error)")
+                completion(.failure(.networkError))
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Image Data Error")
+                completion(.failure(.badData))
+                return
+            }
+            
+            guard let image = UIImage(data: data) else {
+                completion(.failure(.badImage))
+                return
+            }
+            
+            completion(.success(image))
             
         }.resume()
         

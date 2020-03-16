@@ -58,7 +58,8 @@ class CreateMemeDetailViewController: UIViewController, ViewControllerMemeContro
             memeImageView.image = img
             
             if let pngData = img.pngData() {
-                let meme = Meme(category: .Uncategorized, imageData: pngData, isFavorite: true)
+                let meme = Meme(id: nil, category: .Uncategorized, imageData: pngData, isFavorite: true, image: img, images: nil)
+//                let meme = Meme(category: .Uncategorized, imageData: pngData, isFavorite: true)
                 memeController?.createMeme(meme: meme)
                 self.meme = meme
             }
