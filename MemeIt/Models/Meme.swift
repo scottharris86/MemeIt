@@ -9,57 +9,52 @@
 import Foundation
 import UIKit
 
-enum MemeCategory: String, CaseIterable{
-    case Uncategorized = "Uncategorized"
-    case Food = "Food"
-    case Movie = "Movie"
-    case Sports = "Sports"
-    case Work = "Work"
-    case Personal = "Personal"
+
+struct Meme: Codable {
+    let id: String?
+    var category: MemeCategory?
+    var imageData: Data? {
+        didSet {
+            updateImage()
+        }
+    }
+    var isFavorite: Bool?
+    var image: UIImage?
+    let images: MemeImageObject?
     
-//    static var memeCategoryCount: Int{
-//        return MemeCategory.Personal.hashValue + 1
-//    }
+    enum CodingKeys: String, CodingKey {
+        case id
+        case images
+        case isFavorite
+        case imageData
+        case category
+        
+    }
+    
+    private mutating func updateImage() {
+        if let imageData = imageData {
+            self.image = UIImage(data: imageData)
+        }
+    }
+    
 }
 
-class Meme: Codable {
-    
-    var category: MemeCategory
-    var imageData: Data
-    var isFavorite: Bool
-    var image: UIImage? {
-        return UIImage(data: imageData)
-    }
-    
-    init(category: MemeCategory, imageData: Data, isFavorite: Bool = false){
-        self.category = category
-        self.imageData = imageData
-        self.isFavorite = isFavorite
-    }
+struct MemeData: Codable {
+    let data: [Meme]
 }
 
-// MARK - Extensions
+struct MemeImages: Codable {
+    let images: MemeImageObject
+}
 
-extension MemeCategory: Codable {
-    enum Key: CodingKey {
-        case rawValue
-    }
-    enum CodingError: Error {
-        case unknownValue
-    }
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: Key.self)
-        let rawValue = try container.decode(String.self, forKey: .rawValue)
-        self = MemeCategory(rawValue: rawValue) ?? .Uncategorized
-    }
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: Key.self)
-        try container.encode(rawValue, forKey: .rawValue)
+struct MemeImageObject: Codable {
+    let fixed_width_still: MemeImageUrl
+    
+    enum CodingKeys: String, CodingKey {
+        case fixed_width_still = "original_still"
     }
 }
 
-extension Meme: Equatable{
-    static func == (lhs: Meme, rhs: Meme) -> Bool {
-        if lhs.imageData == rhs.imageData{ return true} else {return false}
-    }
+struct MemeImageUrl: Codable {
+    let url: String
 }

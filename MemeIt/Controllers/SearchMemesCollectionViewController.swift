@@ -14,6 +14,8 @@ class SearchMemesCollectionViewController: BaseCollectionViewController, ViewCon
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var memeController: MemeController?
     
+    let apiService = ApiService()
+    
     var memes: [Meme] = []
     let searchController = UISearchController(searchResultsController: nil)
     var isSearchBarEmpty: Bool {
@@ -51,8 +53,18 @@ class SearchMemesCollectionViewController: BaseCollectionViewController, ViewCon
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
         
-        let meme = memes[indexPath.item]
-        cell.imageView.image = meme.image
+        var meme = memes[indexPath.item]
+        guard let memeImage = meme.images else { return cell }
+            self.apiService.fetchImage(at: memeImage.fixed_width_still.url) { result in
+                if let image = try? result.get() {
+                    meme.imageData = image.pngData()
+                    self.memes.replaceSubrange(indexPath.item...indexPath.item, with: [meme])
+                    DispatchQueue.main.async {
+                        cell.imageView.image = image
+                    }
+                    
+                }
+            }
         
         return cell
         
@@ -83,13 +95,40 @@ class SearchMemesCollectionViewController: BaseCollectionViewController, ViewCon
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        ApiService.sharedInstance.fetchMemesForKeyword(keyword: searchText) { (memes: [Meme]) in
-            self.memes = memes
-            self.collectionView.reloadData()
-            self.searchController.searchBar.text = ""
-            backView.removeFromSuperview()
-            spinner.stopAnimating()
-            
+        apiService.fetchMemes(for: searchText) { result in
+            do {
+                let memes = try result.get()
+                DispatchQueue.main.async {
+                    self.memes = memes
+                    self.collectionView.reloadData()
+                    self.searchController.searchBar.text = ""
+                    backView.removeFromSuperview()
+                    spinner.stopAnimating()
+                }
+                
+            } catch {
+                if let error = error as? NetworkError {
+                    switch error {
+                        case .badAuth:
+                            NSLog("Missing or bad API Key")
+                        case .networkError:
+                            NSLog("Network error recieved")
+                        case .badData:
+                            NSLog("Invalid data response")
+                        case .noDecode:
+                            NSLog("Error decoding memes")
+                        case .badUrl:
+                            NSLog("Bad URL")
+                        case .badImage:
+                            NSLog("Bad Image")
+                    }
+                    DispatchQueue.main.async {
+                        self.searchController.searchBar.text = ""
+                        backView.removeFromSuperview()
+                        spinner.stopAnimating()
+                    }
+                }
+            }
         }
     }
     

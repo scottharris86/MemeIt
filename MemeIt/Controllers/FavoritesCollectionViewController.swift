@@ -89,8 +89,10 @@ class FavoritesCollectionViewController: BaseCollectionViewController, ViewContr
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCell", for: indexPath) as? MemeCollectionViewCell else { return UICollectionViewCell() }
         
         
-        let imageData = filterMemes[indexPath.row].imageData
-        cell.memeImageView.image = UIImage(data: imageData)
+        if let imageData = filterMemes[indexPath.row].imageData {
+            cell.memeImageView.image = UIImage(data: imageData)
+        }
+        
         return cell
     }
     
@@ -167,7 +169,7 @@ class FavoritesCollectionViewController: BaseCollectionViewController, ViewContr
         
         //guard indexPath.row < filterMemes.count else { return "" }
         let meme = filterMemes[lastSelectedMemeCell.row]
-        if meme.isFavorite{
+        if let _ =  meme.isFavorite {
             return "Remove from favorites"
         } else{
             return "Add to favorites"

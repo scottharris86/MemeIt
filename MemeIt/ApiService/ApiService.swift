@@ -7,84 +7,102 @@
 //
 
 import Foundation
+import UIKit
 
 class ApiService {
-    let baseUrl = "https://api.giphy.com/v1/gifs/search?api_key=XeYLtK3j64US8ww7nt9ZfSwdNmwyMil4&limit=100&offset=0&rating=PG-13&lang=en&q="
+    // NETWORK REQUEST EXAMPLE
+    // "https://api.giphy.com/v1/gifs/search?api_key=XeYLtK3j64US8ww7nt9ZfSwdNmwyMil4&limit=100&offset=0&rating=PG-13&lang=en&q="
     
-    static let sharedInstance = ApiService()
+    let baseURL = URL(string: "https://api.giphy.com/v1/gifs")!
+    let apiKey = "XeYLtK3j64US8ww7nt9ZfSwdNmwyMil4"
+    var limit = 25
+    var offset = 0
+    var rating = "PG-13"
+    var language = "en"
     
-    func fetchKeyword(keyword: String) {
+    func fetchMemes(for keyword: String, completion: @escaping (Result<[Meme], NetworkError>) -> Void) {
+        let searchURL = baseURL.appendingPathComponent("search")
+        var urlComponents = URLComponents(url: searchURL, resolvingAgainstBaseURL: true)
+        let apiKeyQueryItem = URLQueryItem(name: "api_key", value: apiKey)
+        let limitQueryItem = URLQueryItem(name: "limit", value: String(limit))
+        let offsetQueryItem = URLQueryItem(name: "offset", value: String(offset))
+        let languageQueryItem = URLQueryItem(name: "lang", value: language)
+        let ratingQueryItem = URLQueryItem(name: "rating", value: rating)
+        let searchQueryItem = URLQueryItem(name: "q", value: keyword)
+        
+        urlComponents?.queryItems = [apiKeyQueryItem, limitQueryItem, offsetQueryItem, ratingQueryItem, ratingQueryItem, languageQueryItem, searchQueryItem]
+        
+        guard let requestURL = urlComponents?.url else {
+            print("Request URL is nil")
+            completion(.failure(.badUrl))
+            return
+        }
+        
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                NSLog("Error returned from data task: \(error)")
+                completion(.failure(.networkError))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse, response.statusCode == 401 {
+                completion(.failure(.badAuth))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.badData))
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            do {
+                let memes = try jsonDecoder.decode(MemeData.self, from: data)
+                
+                completion(.success(memes.data))
+            } catch {
+                NSLog("Error decoding Memes: \(error)")
+                completion(.failure(.noDecode))
+                return
+            }
+            
+        }.resume()
         
     }
     
-    func fetchMemesForKeyword(keyword: String, completion: @escaping ([Meme]) -> ()) {
-        var memes: [Meme] = []
-        let search = keyword
-        
-        if let safe = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            let full = "\(baseUrl)\(safe)"
-            
-            
-            if let url = URL(string: full) {
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    if let error = error {
-                        print("Error getting data: \(error.localizedDescription)")
-                        return
-                    }
-                    
-                    do {
-                        if let data = data,
-                            let jsonDictionaries = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject] {
-                            
-                            if let objects = jsonDictionaries["data"] as? [[String: AnyObject]] {
-                                for obj in objects {
-                                    if let images = obj["images"] as? [String: AnyObject] {
-                                        if let whatIWant = images["original_still"] as? [String: String] {
-                                            if let imageURL = whatIWant["url"],
-                                                let url = URL(string: imageURL) {
-                                                
-                                                do {
-                                                    let data = try Data(contentsOf: url)
-                                                    let meme = Meme(category: .Uncategorized, imageData: data)
-                                                    memes.append(meme)
-                                                    
-                                                    
-                                                    
-                                                } catch {
-                                                    print(error)
-                                                }
-                                                
-                                                
-                                            }
-                                            
-                                            
-                                        }
-                                        
-                                    }
-                                    
-                                    
-                                }
-                                DispatchQueue.main.async {
-                                    completion(memes)
-                                }
-                                
-                            }
-                            
-                        }
-                        
-                        
-                        
-                    } catch {
-                        print(error)
-                    }
-                    
-                    
-                    
-                    
-                }.resume()
-                
-            }
+    func fetchImage(at urlString: String, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
+        guard let imageURL = URL(string: urlString) else {
+            NSLog("Bad Image URL String")
+            completion(.failure(.badUrl))
+            return
         }
+        
+        let request = URLRequest(url: imageURL)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                NSLog("Network Error Getting Image: \(error)")
+                completion(.failure(.networkError))
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Image Data Error")
+                completion(.failure(.badData))
+                return
+            }
+            
+            guard let image = UIImage(data: data) else {
+                completion(.failure(.badImage))
+                return
+            }
+            
+            completion(.success(image))
+            
+        }.resume()
         
     }
     

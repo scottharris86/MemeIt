@@ -20,9 +20,10 @@ class MemeController {
     
     // MARK - Properties
     lazy var memeLibrary: [Meme] = [
-        Meme(category: .Food, imageData: convertToImageData(for: "avocado")),
-        Meme(category: .Sports, imageData: convertToImageData(for: "endofdecade")),
-        Meme(category: .Personal, imageData: convertToImageData(for: "summerSchool"))
+        Meme(id: nil, category: .Food, imageData: convertToImageData(for: "avocado"), isFavorite: true, image: nil, images: nil)
+//        Meme(category: .Food, imageData: convertToImageData(for: "avocado")),
+//        Meme(category: .Sports, imageData: convertToImageData(for: "endofdecade")),
+//        Meme(category: .Personal, imageData: convertToImageData(for: "summerSchool"))
     ]
     var memeLibraryURL: URL?{
     let fileManager = FileManager.default
@@ -33,7 +34,7 @@ class MemeController {
     }
     
     var favoriteMemes: [Meme] {
-        return memeLibrary.filter { $0.isFavorite }
+        return memeLibrary.filter { $0.isFavorite ?? false }
     }
     
     init() {
@@ -51,15 +52,16 @@ class MemeController {
     // update
     func addToFavorites(meme: Meme){
         guard let index = memeLibrary.firstIndex(of: meme) else { return }
-        let originalMeme = memeLibrary[index]
-        originalMeme.isFavorite = !originalMeme.isFavorite
+        var originalMeme = memeLibrary[index]
+        originalMeme.isFavorite = !(originalMeme.isFavorite ?? false)
         saveToPersistentStore()
     }
     
     func changeCategory(meme: Meme, category: MemeCategory){
         guard let index = memeLibrary.firstIndex(of: meme) else { return }
-        let originalMeme = memeLibrary[index]
+        var originalMeme = memeLibrary[index]
         originalMeme.category = category
+        memeLibrary[index] = originalMeme
         saveToPersistentStore()
         
     }
@@ -107,8 +109,10 @@ class MemeController {
     // Methods
     func addToClipboard (meme: Meme){
         let pasteBoard = UIPasteboard.general
-        let imageData = meme.imageData
-        pasteBoard.image = UIImage(data: imageData)
+        if let imageData = meme.imageData {
+            pasteBoard.image = UIImage(data: imageData)
+        }
+        
         
     }
 
